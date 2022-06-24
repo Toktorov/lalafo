@@ -1,0 +1,111 @@
+{% load static %}
+<!-- footer Start -->
+<div class="section footer-bg">
+
+    <!-- Footer Widget Section Start -->
+    <div class="footer-widget-section section-padding">
+        <div class="container">
+            <!-- footer Widget Wrapper -->
+            <div class="footer-widget-wrapper mt-n6">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+
+                        <!-- footer Widget Start -->
+                        <div class="footer-widget">
+                            <a href="index.html#"><img src="assets/images/logo-white.png" alt=""></a>
+                            <div class="footer-widget-text">
+                                <p class="desc">{{ setting.description }}</p>
+                                <p><strong>Адрес :</strong> {{ setting.address }}</p>
+                                <p><strong>Телефонный номер :</strong>{{ setting.phone }}</p>
+                                <p><strong>Почта :</strong>{{ setting.email }}</p>
+                            </div>
+                        </div>
+                        <!-- footer Widget End -->
+
+                    </div>
+                    <div class="col-lg-2 col-sm-6">
+
+                        <!-- footer Widget Start -->
+                        <div class="footer-widget">
+                            <h3 class="footer-widget-title">Information</h3>
+
+                            <ul class="widget-link">
+                                <li><a href="index.html#">Delivery</a></li>
+                                <li><a href="index.html#">About us</a></li>
+                                <li><a href="index.html#">Secure payment</a></li>
+                                <li><a href="index.html#">Contact us</a></li>
+                                <li><a href="index.html#">Sitemap</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                        <!-- footer Widget End -->
+
+                    </div>
+                    <div class="col-lg-2 col-sm-6">
+
+                        <!-- footer Widget Start -->
+                        <div class="footer-widget">
+                            <h3 class="footer-widget-title">My Account</h3>
+
+                            <ul class="widget-link">
+                                <li><a href="my-account.html">My Account</a></li>
+                                <li><a href="checkout.html">Checkout</a></li>
+                                <li><a href="wishlist.html">Wishlist</a></li>
+                                <li><a href="login.html">Sign in</a></li>
+                            </ul>
+                        </div>
+                        <!-- footer Widget End -->
+
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+
+                        <!-- footer Widget Start -->
+                        <div class="footer-widget">
+                            <h3 class="footer-widget-title">Join Our Newsletter Now</h3>
+
+                            <div class="widget-newsletter">
+                                <p>Get E-mail updates about our latest shop and special offers.</p>
+
+                                <div class="input-wrapper">
+                                    <input type="text" placeholder="Your email address">
+                                    <button>Subscribe</button>
+                                </div>
+                            </div>
+
+                            <div class="widget-social">
+                                <ul>
+                                    <li><a class="facebook" href="{{ setting.facebook }}"><i class="icon-facebook2"></i></a></li>
+                                    <li><a class="twitter" href="{{ setting.twitter }}"><i class="icon-twitter2"></i></a></li>
+                                    <li><a class="youtube" href="{{ setting.youtube }}"><i class="icon-youtube2"></i></a></li>
+                                    <li><a class="instagram" href="{{ setting.instagram }}"><i class="icon-instagram2"></i></a></li>
+                                    <li><a class="linkedin" href="{{ setting.linkedin }}"><i class="icon-linkedin2"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- footer Widget End -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- footer Widget Wrapper -->
+        </div>
+    </div>
+    <!-- Footer Widget Section End -->
+
+    <!-- Copyright Start -->
+    <div class="copyright-section">
+        <div class="container">
+            <div class="copyright-payment-method">
+                <div class="copyright-text">
+                    <p>&copy; 2022 <span> IT-RUN </span> Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://hasthemes.com/" target="_blank">Backend Run 6</a></p>
+                </div>
+                <div class="payment-method">
+                    <img src="{% static 'assets/images/payment.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+</div>
+<!-- footer End -->

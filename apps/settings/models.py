@@ -9,6 +9,11 @@ class Setting(models.Model):
     phone = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
     email = models.EmailField(max_length=150)
+    facebook = models.URLField(null=True)
+    twitter = models.URLField(null=True)
+    youtube = models.URLField(null=True)
+    instagram = models.URLField(null=True)
+    linkedin = models.URLField(null=True)
 
     def __str__(self):
         return self.title
