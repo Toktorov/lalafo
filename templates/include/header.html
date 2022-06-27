@@ -185,15 +185,7 @@
             <div class="primary-menu">
                 <nav>
                     <ul>
-                        <li class="active">
-                            <a href="index.html#">Home</a>
-                            <ul class="sub-menu">
-                                <li><a href="index.html">Home 01</a></li>
-                                <li><a href="index-2.html">Home 02</a></li>
-                                <li><a href="index-3.html">Home 03</a></li>
-                                <li><a href="index-4.html">Home 04</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="{% url 'index' %}">Домой</a></li>
                         <li>
                             <a href="index.html#">Shop</a>
                             <ul class="mega-sub-menu">
@@ -278,6 +270,21 @@
                             </ul>
                         </li>
                         <li><a href="contact.html">Contact</a></li>
+                        {% if user.is_authenticated %}
+                        <li class="active">
+                            <a href="index.html#">{{user.username}}</a>
+                            <ul class="sub-menu">
+                                <li><a href="{% url 'logout' %}">Выйти</a></li>
+                                <li><a href="index-2.html">Мой аккаунт</a></li>
+                                <li><a href="index-3.html">Настройки</a></li>
+                                <li><a href="index-4.html">Редактировать профиль</a></li>
+                            </ul>
+                        </li>
+                        {% else %}
+                        <li><a href="{% url 'user_login' %}">Войти</a></li>
+                        <li><a href="{% url 'register' %}">Зарегистрироваться</a></li>
+                        
+                        {% endif %}
                     </ul>
                 </nav>
             </div>

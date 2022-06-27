@@ -1,47 +1,6 @@
+{% extends 'homepage.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{{ setting.title }}</title>
-    <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ setting.logo.url }}">
-
-
-
-
-    <!-- CSS
-    ============================================ -->
-
-    <!-- Icon Font CSS -->
-    <!-- <link rel="stylesheet" href="assets/css/plugins/plazaicon.css">
-    <link rel="stylesheet" href="assets/css/plugins/fontawesome.min.css"> -->
-
-    <!-- Plugins CSS -->
-    <!-- <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/animate.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/plugins/select2.min.css"> -->
-
-    <!-- Main Style CSS -->
-    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
-
-
-    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
-    <link rel="stylesheet" href="{% static 'assets/css/vendor/plugins.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/style.min.css' %}">
-
-
-</head>
-
-<body>
+{% block content %}
 
 
     {% include 'include/header.html' %}
@@ -179,17 +138,18 @@
             <div class="product-wrapper product-active mt-n1">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
+                        {% for post in posts %}
                         <div class="swiper-slide">
                             <!-- Product Item Start -->
                             <div class="product-item">
                                 <div class="image-block">
                                     <a href="shop-single.html">
-                                        <img src="assets/images/product/prduct-13.jpg" alt="">
-                                        <img class="image-hover" src="assets/images/product/prduct-12.jpg" alt="">
+                                        <img src="{{ post.post_image.url }}" alt="">
+                                        <img class="image-hover" src="{{ post.post_image.url }}" alt="">
                                     </a>
                                     <div class="product-label">
                                         <span class="new">New</span>
-                                        <span class="discount-percentage">-20%</span>
+                                        <!-- <span class="discount-percentage">-20%</span> -->
                                     </div>
                                     <div class="product-action">
                                         <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
@@ -200,192 +160,22 @@
                                 </div>
                                 <div class="product-desc">
                                     <div class="product-features-reviews">
-                                        <a href="index.html#" class="features">Studio Design</a>
+                                        <a href="index.html#" class="features">{{ post.user }}</a>
 
                                         <div class="review-star">
                                             <div class="star" style="width: 80%;"></div>
                                         </div>
                                     </div>
-                                    <h4 class="product-name"><a href="shop-single.html">Originals Kaval Windbreaker Winter Jacket</a></h4>
+                                    <h4 class="product-name"><a href="shop-single.html">{{ post.title }}</a></h4>
                                     <div class="product-price">
-                                        <span class="sale-price">$19.12</span>
-                                        <span class="old-price">$23.90</span>
+                                        <span class="sale-price">{{ post.price }} KGZ</span>
+                                        <!-- <span class="old-price">$23.90</span> -->
                                     </div>
                                 </div>
                             </div>
                             <!-- Product Item End -->
                         </div>
-                        <div class="swiper-slide">
-                            <!-- Product Item Start -->
-                            <div class="product-item">
-                                <div class="image-block">
-                                    <a href="shop-single.html">
-                                        <img src="assets/images/product/prduct-12.jpg" alt="">
-                                        <img class="image-hover" src="assets/images/product/prduct-07.jpg" alt="">
-                                    </a>
-                                    <div class="product-label">
-                                        <span class="new">New</span>
-                                        <span class="discount-percentage">-20%</span>
-                                    </div>
-                                    <div class="product-action">
-                                        <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                        <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                        <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                        <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-features-reviews">
-                                        <a href="index.html#" class="features">Studio Design</a>
-
-                                        <div class="review-star">
-                                            <div class="star" style="width: 80%;"></div>
-                                        </div>
-                                    </div>
-                                    <h4 class="product-name"><a href="shop-single.html">Juicy Couture Juicy Quilted Terry Track Jacket</a></h4>
-                                    <div class="product-price">
-                                        <span class="sale-price">$19.12</span>
-                                        <span class="old-price">$23.90</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Product Item End -->
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- Product Item Start -->
-                            <div class="product-item">
-                                <div class="image-block">
-                                    <a href="shop-single.html">
-                                        <img src="assets/images/product/prduct-08.jpg" alt="">
-                                        <img class="image-hover" src="assets/images/product/prduct-11.jpg" alt="">
-                                    </a>
-                                    <div class="product-label">
-                                        <span class="new">New</span>
-                                    </div>
-                                    <div class="product-action">
-                                        <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                        <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                        <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                        <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-features-reviews">
-                                        <a href="index.html#" class="features">Studio Design</a>
-
-                                        <div class="review-star">
-                                            <div class="star" style="width: 80%;"></div>
-                                        </div>
-                                    </div>
-                                    <h4 class="product-name"><a href="shop-single.html">Madden by Steve Madden Cale 6 Handsome Madden</a></h4>
-                                    <div class="product-price">
-                                        <span class="sale-price">$19.90</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Product Item End -->
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- Product Item Start -->
-                            <div class="product-item">
-                                <div class="image-block">
-                                    <a href="shop-single.html">
-                                        <img src="assets/images/product/prduct-11.jpg" alt="">
-                                        <img class="image-hover" src="assets/images/product/prduct-03.jpg" alt="">
-                                    </a>
-                                    <div class="product-label">
-                                        <span class="new">New</span>
-                                    </div>
-                                    <div class="product-action">
-                                        <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                        <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                        <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                        <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-features-reviews">
-                                        <a href="index.html#" class="features">Studio Design</a>
-
-                                        <div class="review-star">
-                                            <div class="star" style="width: 80%;"></div>
-                                        </div>
-                                    </div>
-                                    <h4 class="product-name"><a href="shop-single.html">Trans-Weight Hooded Wind and Water Resistant Shell</a></h4>
-                                    <div class="product-price">
-                                        <span class="sale-price">$19.12</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Product Item End -->
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- Product Item Start -->
-                            <div class="product-item">
-                                <div class="image-block">
-                                    <a href="shop-single.html">
-                                        <img src="assets/images/product/prduct-11.jpg" alt="">
-                                    </a>
-                                    <div class="product-label">
-                                        <span class="new">New</span>
-                                    </div>
-                                    <div class="product-action">
-                                        <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                        <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                        <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                        <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-features-reviews">
-                                        <a href="index.html#" class="features">Studio Design</a>
-
-                                        <div class="review-star">
-                                            <div class="star" style="width: 80%;"></div>
-                                        </div>
-                                    </div>
-                                    <h4 class="product-name"><a href="shop-single.html">Water and Wind Resistant Insulated Jacket</a></h4>
-                                    <div class="product-price">
-                                        <span class="sale-price">$11.90</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Product Item End -->
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- Product Item Start -->
-                            <div class="product-item">
-                                <div class="image-block">
-                                    <a href="shop-single.html">
-                                        <img src="assets/images/product/prduct-02.jpg" alt="">
-                                        <img class="image-hover" src="assets/images/product/prduct-01.jpg" alt="">
-                                    </a>
-                                    <div class="product-label">
-                                        <span class="new">New</span>
-                                    </div>
-                                    <div class="product-action">
-                                        <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                        <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                        <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                        <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-features-reviews">
-                                        <a href="index.html#" class="features">Studio Design</a>
-
-                                        <div class="review-star">
-                                            <div class="star" style="width: 80%;"></div>
-                                        </div>
-                                    </div>
-                                    <h4 class="product-name"><a href="shop-single.html">New Balance Fresh Foam Kaymin Cushioning...</a></h4>
-                                    <div class="product-price">
-                                        <span class="sale-price">$18.90</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Product Item End -->
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <!-- Add Arrows -->
@@ -1394,36 +1184,4 @@
     </div>
     <!-- Quick View End -->
 
-
-
-
-    <!-- JS
-    ============================================ -->
-
-    <!-- Modernizer & jQuery JS -->
-    <script src="{% static 'assets/js/vendor/modernizr-3.11.2.min.js' %}"></script>
-    <script src="{% static 'assets/js/vendor/jquery-3.5.1.min.js' %}"></script>
-
-    <!-- Bootstrap JS -->
-    <!-- <script src="assets/js/plugins/popper.min.js"></script>
-    <script src="assets/js/plugins/bootstrap.min.js"></script> -->
-
-    <!-- Plugins JS -->
-    <!-- <script src="assets/js/plugins/swiper-bundle.min.js"></script>
-    <script src="assets/js/plugins/jquery-ui.min.js"></script>
-    <script src="assets/js/plugins/jquery.zoom.min.js"></script>
-    <script src="assets/js/plugins/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/plugins/select2.min.js"></script>
-    <script src="assets/js/plugins/ajax-contact.js"></script> -->
-
-    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
-    <script src="{% static 'assets/js/plugins.min.js' %}"></script>
-
-
-    <!-- Main JS -->
-    <script src="{% static 'assets/js/main.js' %}"></script>
-
-
-</body>
-
-</html>
+{% endblock %}

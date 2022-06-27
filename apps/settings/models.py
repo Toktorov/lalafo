@@ -13,7 +13,7 @@ class Setting(models.Model):
     twitter = models.URLField(null=True)
     youtube = models.URLField(null=True)
     instagram = models.URLField(null=True)
-    linkedin = models.URLField(null=True)
+    linkedin = models.URLField(blank = True, null=True)
 
     def __str__(self):
         return self.title
