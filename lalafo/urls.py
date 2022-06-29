@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.settings.urls')),
     path('', include('apps.users.urls')),
+    path('post/', include('apps.posts.urls')),
     path('logout/', LogoutView.as_view(next_page = 'index'), name = "logout"),
 ]
 

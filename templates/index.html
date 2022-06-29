@@ -143,7 +143,7 @@
                             <!-- Product Item Start -->
                             <div class="product-item">
                                 <div class="image-block">
-                                    <a href="shop-single.html">
+                                    <a href="{% url 'post_detail' post.id %}">
                                         <img src="{{ post.post_image.url }}" alt="">
                                         <img class="image-hover" src="{{ post.post_image.url }}" alt="">
                                     </a>
@@ -166,7 +166,7 @@
                                             <div class="star" style="width: 80%;"></div>
                                         </div>
                                     </div>
-                                    <h4 class="product-name"><a href="shop-single.html">{{ post.title }}</a></h4>
+                                    <h4 class="product-name"><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h4>
                                     <div class="product-price">
                                         <span class="sale-price">{{ post.price }} KGZ</span>
                                         <!-- <span class="old-price">$23.90</span> -->
