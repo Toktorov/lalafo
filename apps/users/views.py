@@ -30,7 +30,7 @@ def register(request):
     context = {
         'setting' : setting,
     }
-    return render(request, 'register.html', context)
+    return render(request, 'users/register.html', context)
 
 def user_login(request):
     setting = Setting.objects.latest('id')
@@ -48,4 +48,4 @@ def user_login(request):
     context = {
         'setting' : setting,
     }
-    return render(request, 'login.html', context)
+    return render(request, 'users/login.html', context)

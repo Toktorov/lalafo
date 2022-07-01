@@ -1,3 +1,4 @@
+from locale import currency
 from tabnanny import verbose
 from unicodedata import category
 from django.db import models
@@ -12,6 +13,16 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="post_category", blank = True, null = True)
     price = models.PositiveBigIntegerField()
     post_image = models.ImageField(upload_to = "post_image/")
+    CHOICE_CURRENCY = (
+        ('KGZ', 'KGZ'),
+        ('USD', 'USD'),
+        ('EURO', 'EURO'),
+        ('RUB', 'RUB'),
+        ('Договорная', 'Договорная'),
+    )
+    currency = models.CharField(choices=CHOICE_CURRENCY, default='Договорная', max_length=100)
+    phone = models.CharField(max_length=100, default="+99677777777")
+    
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

@@ -8,6 +8,9 @@
     <div class="menu-overlay"></div>
 
 
+    <!-- New Product Start -->
+    
+
     <!-- Slider Start -->
     <div class="section">
         <div class="swiper-container slider-active">
@@ -50,6 +53,67 @@
         </div>
     </div>
     <!-- Slider End -->
+    <div class="section ">
+        <div class="container swiper-container slider-active">
+            <!-- Section Title Start -->
+            <div class="section-title text-center">
+                <h2 class="title">New Arrivals</h2>
+                <p>Consequat magna, massa vel suspendisse morbi aliquam faucibus <br> ligula ante ipsum ac nulla.</p>
+            </div>
+            <!-- Section Title End -->
+
+            <!-- Product Wrapper Start -->
+            <div class="product-wrapper product-active mt-n1">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        {% for post in posts %}
+                        <div class="swiper-slide" >
+                            <!-- Product Item Start -->
+                            <div class="product-item" >
+                                <div class="image-block">
+                                    <a href="{% url 'post_detail' post.id %}">
+                                        <img src="{{ post.post_image.url }}" alt="">
+                                        <img class="image-hover" src="{{ post.post_image.url }}" alt="">
+                                    </a>
+                                    <div class="product-label">
+                                        <span class="new">New</span>
+                                        <!-- <span class="discount-percentage">-20%</span> -->
+                                    </div>
+                                    <div class="product-action">
+                                        <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
+                                        <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
+                                        <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
+                                        <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-desc">
+                                    <div class="product-features-reviews">
+                                        <a href="index.html#" class="features">{{ post.user }}</a>
+
+                                        <div class="review-star">
+                                            <div class="star" style="width: 80%;"></div>
+                                        </div>
+                                    </div>
+                                    <h4 class="product-name"><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h4>
+                                    <div class="product-price">
+                                        <span class="sale-price">{{ post.price }} KGZ</span>
+                                        <!-- <span class="old-price">$23.90</span> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Product Item End -->
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <!-- Product Wrapper End -->
+        </div>
+    </div>
+    <!-- New Product End -->
 
     <!-- Features Start -->
     <div class="section">
@@ -124,69 +188,6 @@
     </div>
     <!-- About End -->
 
-    <!-- New Product Start -->
-    <div class="section section-padding-02 mt-n2">
-        <div class="container">
-            <!-- Section Title Start -->
-            <div class="section-title text-center">
-                <h2 class="title">New Arrivals</h2>
-                <p>Consequat magna, massa vel suspendisse morbi aliquam faucibus <br> ligula ante ipsum ac nulla.</p>
-            </div>
-            <!-- Section Title End -->
-
-            <!-- Product Wrapper Start -->
-            <div class="product-wrapper product-active mt-n1">
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        {% for post in posts %}
-                        <div class="swiper-slide">
-                            <!-- Product Item Start -->
-                            <div class="product-item">
-                                <div class="image-block">
-                                    <a href="{% url 'post_detail' post.id %}">
-                                        <img src="{{ post.post_image.url }}" alt="">
-                                        <img class="image-hover" src="{{ post.post_image.url }}" alt="">
-                                    </a>
-                                    <div class="product-label">
-                                        <span class="new">New</span>
-                                        <!-- <span class="discount-percentage">-20%</span> -->
-                                    </div>
-                                    <div class="product-action">
-                                        <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                        <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                        <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                        <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-features-reviews">
-                                        <a href="index.html#" class="features">{{ post.user }}</a>
-
-                                        <div class="review-star">
-                                            <div class="star" style="width: 80%;"></div>
-                                        </div>
-                                    </div>
-                                    <h4 class="product-name"><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h4>
-                                    <div class="product-price">
-                                        <span class="sale-price">{{ post.price }} KGZ</span>
-                                        <!-- <span class="old-price">$23.90</span> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Product Item End -->
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-                <!-- Add Arrows -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-            <!-- Product Wrapper End -->
-        </div>
-    </div>
-    <!-- New Product End -->
-
     <!-- Banner Start -->
     <div class="section mt-n6">
         <div class="container">
@@ -244,7 +245,7 @@
                         <div class="product-wrapper product-active">
                             <div class="swiper-container">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide" >
                                         <!-- Product Item Start -->
                                         <div class="product-item">
                                             <div class="image-block">
