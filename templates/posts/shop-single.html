@@ -147,11 +147,25 @@
                     <div class="vertical-slider-wrap">
                         <div class="swiper-container pd-vertical-slider">
                             <div class="swiper-wrapper">
+                                {% for image in post.image_post.all %}
+                                <div class="swiper-slide">
+                                    <div class="single-img zoom">
+                                        <img src="{{ image.image.url }}" alt="Product Image">
+                                        <div class="inner-stuff">
+                                            <div class="gallery-item" data-bs-src="{{ image.image.url }}">
+                                                <a href="javascript:void(0)">
+                                                    <i class="lastudioicon-full-screen"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
                                 <div class="swiper-slide">
                                     <div class="single-img zoom">
                                         <img src="{{ post.post_image.url }}" alt="Product Image">
                                         <div class="inner-stuff">
-                                            <div class="gallery-item" data-bs-src="assets/images/shop-single/shop-single-01.jpg">
+                                            <div class="gallery-item" data-bs-src="{{ post.post_image.url }}">
                                                 <a href="javascript:void(0)">
                                                     <i class="lastudioicon-full-screen"></i>
                                                 </a>
@@ -159,54 +173,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="single-img zoom">
-                                        <img src="assets/images/shop-single/shop-single-02.jpg" alt="Product Image">
-                                        <div class="inner-stuff">
-                                            <div class="gallery-item" data-bs-src="assets/images/shop-single/shop-single-02.jpg">
-                                                <a href="javascript:void(0)">
-                                                    <i class="lastudioicon-full-screen"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="single-img zoom">
-                                        <img src="assets/images/shop-single/shop-single-03.jpg" alt="Product Image">
-                                        <div class="inner-stuff">
-                                            <div class="gallery-item" data-bs-src="assets/images/shop-single/shop-single-03.jpg">
-                                                <a href="javascript:void(0)">
-                                                    <i class="lastudioicon-full-screen"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="single-img zoom">
-                                        <img src="assets/images/shop-single/shop-single-04.jpg" alt="Product Image">
-                                        <div class="inner-stuff">
-                                            <div class="gallery-item" data-bs-src="assets/images/shop-single/shop-single-04.jpg">
-                                                <a href="javascript:void(0)">
-                                                    <i class="lastudioicon-full-screen"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="single-img zoom">
-                                        <img src="assets/images/shop-single/shop-single-05.jpg" alt="Product Image">
-                                        <div class="inner-stuff">
-                                            <div class="gallery-item" data-bs-src="assets/images/shop-single/shop-single-05.jpg">
-                                                <a href="javascript:void(0)">
-                                                    <i class="lastudioicon-full-screen"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                             <div class="product-label">
                                 <span class="new">New</span>
@@ -215,30 +182,18 @@
                         </div>
                         <div class="vertical-slider-nav swiper-container">
                             <div class="swiper-wrapper">
+                                {% for image in post.image_post.all %}
                                 <div class="swiper-slide">
-                                    <img src="assets/images/shop-single/shop-single-01.jpg" alt="Product Thumnail">
+                                    <img src="{{ image.image.url }}" alt="Product Thumnail">
                                 </div>
-                                <div class="swiper-slide">
-                                    <img src="assets/images/shop-single/shop-single-02.jpg" alt="Product Thumnail">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="assets/images/shop-single/shop-single-03.jpg" alt="Product Thumnail">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="assets/images/shop-single/shop-single-04.jpg" alt="Product Thumnail">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="assets/images/shop-single/shop-single-05.jpg" alt="Product Thumnail">
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
 
                         <div id="gallery-1" class="gallery-hidden">
-                            <a href="assets/images/shop-single/shop-single-01.jpg">Image 1</a>
-                            <a href="assets/images/shop-single/shop-single-02.jpg">Image 2</a>
-                            <a href="assets/images/shop-single/shop-single-03.jpg">Image 3</a>
-                            <a href="assets/images/shop-single/shop-single-04.jpg">Image 4</a>
-                            <a href="assets/images/shop-single/shop-single-05.jpg">Image 5</a>
+                            {% for image in post.image_post.all %}
+                            <a href="{{ image.image.url }}">Image 1</a>
+                            {% endfor %}
                         </div>
                     </div>
                     <!-- Shop Gallery image End -->

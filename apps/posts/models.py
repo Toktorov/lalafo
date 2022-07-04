@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from locale import currency
 from tabnanny import verbose
 from unicodedata import category
@@ -32,4 +33,10 @@ class Post(models.Model):
         verbose_name = "Объявление"
         verbose_name_plural = "Объявления"
 
-    
+class PostImage(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="image_post")
+    image = models.ImageField(upload_to = "second_post_image/")
+
+    class Meta:
+        verbose_name = "Дополнительная фотография"
+        verbose_name_plural = "Дополнительные фотографии"
