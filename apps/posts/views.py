@@ -1,8 +1,8 @@
-from locale import currency
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from apps.posts.models import Post
 from apps.settings.models import Setting
+from apps.categories.models import Category
 
 # Create your views here.
 def post_detail(request, id):
@@ -18,6 +18,7 @@ def post_detail(request, id):
 
 def post_create(request):
     setting = Setting.objects.latest('id')
+    categories = Category.objects.all()
     if request.method == "POST":
         # try:
         post_image = request.FILES.get('post_image')
@@ -26,12 +27,59 @@ def post_create(request):
         price = request.POST.get('price')
         currency = request.POST.get('currency')
         phone = request.POST.get('price')
-        post = Post.objects.create(user = request.user, title = title, post_image = post_image, description = description, price = price, currency = currency, phone = phone)
+        category = request.POST.get('category')
+        post = Post.objects.create(user = request.user, title = title, post_image = post_image, description = description, price = price, currency = currency, phone = phone, category_id = category)
         return redirect('index')
         # except:
         #     return HttpResponse("Error")
 
     context = {
         'setting' : setting,
+        'categories' : categories,
     }
     return render(request, 'posts/create.html', context)
+
+def post_update(request, id):
+    setting = Setting.objects.latest('id')
+    post = Post.objects.get(id = id)
+    categories = Category.objects.all()
+    if request.method == "POST":
+        try:
+            post_image = request.FILES.get('post_image')
+            title = request.POST.get('title')
+            description = request.POST.get('description')
+            price = request.POST.get('price')
+            currency = request.POST.get('currency')
+            phone = request.POST.get('price')
+            category = request.POST.get('category')
+            post = Post.objects.get(id = id)
+            post.post_image = post_image
+            post.title = title 
+            post.description = description
+            post.price = price 
+            post.currency = currency
+            post.phone = phone 
+            post.category_id = category
+            post.save()
+            return redirect('post_detail', post.id)
+        except:
+            return HttpResponse("Error")
+    context = {
+        'setting' : setting,
+        'categories' : categories,
+        'post' : post,
+    }
+    return render(request, 'posts/update.html', context)
+
+def post_delete(request, id):
+    setting = Setting.objects.latest('id')
+    post = Post.objects.get(id = id)
+    if request.method == "POST":
+        post = Post.objects.get(id = id)
+        post.delete()
+        return redirect('index')
+    context = {
+        'setting' : setting,
+        'post' : post,
+    }
+    return render(request, 'posts/delete.html', context)

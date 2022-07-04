@@ -272,6 +272,9 @@
                         <li><a href="contact.html">Contact</a></li>
                         {% if user.is_authenticated %}
                         <li class="active">
+                            <li><a href="{% url 'post_create' %}">Подать объявление</a></li>
+                        </li>
+                        <li class="active">
                             <a href="index.html#">{{user.username}}</a>
                             <ul class="sub-menu">
                                 <li><a href="{% url 'logout' %}">Выйти</a></li>

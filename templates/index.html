@@ -80,7 +80,7 @@
                                 <div class="product-action">
                                     <a class="action-btn add-cart" href="shop-single.html#"><i class="icon-shopping-bag2"></i></a>
                                     <a class="action-btn wishlist " href="shop-single.html#"><i class="icon-heart"></i></a>
-                                    <a class="action-btn compare" href="shop-single.html#"><i class="icon-sliders"></i></a>
+                                    <!-- <a class="action-btn compare" href="shop-single.html#"><i class="icon-sliders"></i></a> -->
                                     <a class="action-btn quick-view" href="{% url 'post_detail' post.id %}" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
                                 </div>
                             </div>
@@ -94,9 +94,15 @@
                                 </div>
                                 <h4 class="product-name"><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h4>
                                 <div class="product-price">
-                                    <span class="sale-price">{{ post.price }} KGZ</span>
+                                    {% if post.currency != "Договорная" %}
+                                    <span class="sale-price">{{ post.price }} {{ post.currency }}</span>
                                     <!-- <span class="old-price">$23.90</span> -->
+                                    {% else %}
+                                    <span class="sale-price">{{ post.currency }}</span>
+                                    {% endif %}
                                 </div>
+                                <h4 class="product-name"><a href="{% url 'post_detail' post.id %}">{{ post.user }}</a></h4>
+
                             </div>
                         </div>
                         <!-- Product Item End -->

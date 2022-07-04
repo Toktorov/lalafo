@@ -121,16 +121,16 @@
 
     <div class="menu-overlay"></div>
 
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and request.user == post.user %}
     <!-- Page Banner Start -->
     <div class="page-banner-section section">
         <div class="container">
             <!-- Pager Banner Start -->
             <div class="page-banner-content text-center">
-                <h2 class="page-banner-title">Разместить объявление</h2>
+                <h2 class="page-banner-title">Удалить объявление</h2>
                 <ul class="breadcrumb justify-content-center">
                     <li class="breadcrumb-item"><a href="index.html">Домой</a></li>
-                    <li class="breadcrumb-item active">Разместить объявление</li>
+                    <li class="breadcrumb-item active">Удалить объявление</li>
                 </ul>
             </div>
             <!-- Pager Banner End -->
@@ -143,8 +143,8 @@
         <div class="container">
             <!-- Pager Banner Start -->
             <div class="page-banner-content text-center">
-                <h2 class="page-banner-title">Вы не зарегистрованы</h2>
-                <a href="index.html">Так как вы не зарегистрованный пользователь, вы не можете подавать объявление</a>
+                <h2 class="page-banner-title">У вас нет прав</h2>
+                <a href="index.html">Так как вы не зарегистрованный пользователь или же не зарегистрованы, вы не можете подавать объявление</a>
                 <ul class="breadcrumb justify-content-center">
                     <li class="breadcrumb-item"><a href="{% url 'register' %}">Зарегистрироваться</a></li>
                     <li class="breadcrumb-item"><a href="{% url 'user_login' %}">Войти</a></li>
@@ -164,62 +164,11 @@
                 <div class="col-lg-6">
                     <!-- Login & Register Start -->
                     <div class="login-register-wrapper">
-                        <h4 class="title">Разместить БЕСПЛАТНОЕ объявление просто!</h4>
-                        <p><a href="login.html">Объявления с качественными фото получают больше откликов! Удерживайте клавишу Ctrl, чтобы выбрать сразу несколько фото</a></p>
+                        <h4 class="title">Вы уверены что хотите удалить объявление?</h4>
+                        <p><a href="login.html">После удаления данные пропадут навсегда</a></p>
                         <form method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
-                            <div class="single-form">
-                                <label for="img">Загрузите фото</label>
-                                <input type="file" class="form-control" id="img" name="post_image" accept="image/*">
-                            </div>
-                            <div class="single-form">
-                                <label class="form-label">Заговок</label>
-                                <input type="text" name = "title"  class="form-control">
-                            </div>
-                            <div class="single-form">
-                                <label class="form-label">Описание</label>
-                                <input type="text" name = "description" class="form-control">
-                            </div>
-                            <div class="single-form">
-                                <label class="form-label">Категория</label>
-                                <select size="1" name="category" class="form-control">
-                                    {% for category in categories %}
-                                    <option value="{{ category.id }}" selected>{{ category.title }}</option>
-                                    {% endfor %}
-                                   </select>
-                            </div>
-                            <div class="single-form">
-                                <label class="form-label">Цена *</label>
-                                <input type="text" name = "price" class="form-control">
-                            </div>
-                            <div class="single-form">
-                                <label class="form-label">Выберите валюту</label>
-                                <select size="1" name="currency" class="form-control">
-                                    <option value="KGZ" selected>KGZ</option>
-                                    <option value="USD">USD</option>
-                                    <option value="RUB">RUB</option>
-                                    <option value="EUR">EUR</option>
-                                    <option value="Договорная">Договорная</option>
-                                   </select>
-                            </div>
-                            <div class="single-form">
-                                <label class="form-label">Телефонный номер</label>
-                                <input type="tel" name = "phone" class="form-control">
-                            </div>
-                            
-                            
-                            <!-- <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="receive">
-                                <label class="form-check-label" for="receive">Receive Offers From Our Partners</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="newsletter">
-                                <label class="form-check-label" for="newsletter">Sign Up For Our Newsletter <br>
-										Subscribe To Our Newsletters Now And Stay Up-To-Date With New Collections, The Latest Lookbooks And Exclusive Offers.</label>
-                            </div> -->
-                            <div class="single-form">
-                                <input class="btn btn-primary" type="submit" value="Опубликовать">
-                            </div>
+                            <button class="w-100 btn btn-lg btn-primary" type="submit">Удалить пост {{ post.title }}</button>
                         </form>
                     </div>
                     <!-- Login & Register End -->

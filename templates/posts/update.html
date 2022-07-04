@@ -121,16 +121,16 @@
 
     <div class="menu-overlay"></div>
 
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and request.user == post.user %}
     <!-- Page Banner Start -->
     <div class="page-banner-section section">
         <div class="container">
             <!-- Pager Banner Start -->
             <div class="page-banner-content text-center">
-                <h2 class="page-banner-title">Разместить объявление</h2>
+                <h2 class="page-banner-title">Обновить объявление</h2>
                 <ul class="breadcrumb justify-content-center">
                     <li class="breadcrumb-item"><a href="index.html">Домой</a></li>
-                    <li class="breadcrumb-item active">Разместить объявление</li>
+                    <li class="breadcrumb-item active">Обновить объявление</li>
                 </ul>
             </div>
             <!-- Pager Banner End -->
@@ -143,8 +143,8 @@
         <div class="container">
             <!-- Pager Banner Start -->
             <div class="page-banner-content text-center">
-                <h2 class="page-banner-title">Вы не зарегистрованы</h2>
-                <a href="index.html">Так как вы не зарегистрованный пользователь, вы не можете подавать объявление</a>
+                <h2 class="page-banner-title">У вас нет прав</h2>
+                <a href="index.html">Так как вы не зарегистрованный пользователь или же не зарегистрованы, вы не можете подавать объявление</a>
                 <ul class="breadcrumb justify-content-center">
                     <li class="breadcrumb-item"><a href="{% url 'register' %}">Зарегистрироваться</a></li>
                     <li class="breadcrumb-item"><a href="{% url 'user_login' %}">Войти</a></li>
@@ -156,7 +156,7 @@
     <!-- Page Banner End -->
     {% endif %}
 
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and request.user == post.user %}
     <!-- Register Section Start -->
     <div class="section section-padding mt-n2">
         <div class="container">
@@ -164,7 +164,7 @@
                 <div class="col-lg-6">
                     <!-- Login & Register Start -->
                     <div class="login-register-wrapper">
-                        <h4 class="title">Разместить БЕСПЛАТНОЕ объявление просто!</h4>
+                        <h4 class="title">Обновить БЕСПЛАТНОЕ объявление просто!</h4>
                         <p><a href="login.html">Объявления с качественными фото получают больше откликов! Удерживайте клавишу Ctrl, чтобы выбрать сразу несколько фото</a></p>
                         <form method="POST" enctype="multipart/form-data">
                             {% csrf_token %}

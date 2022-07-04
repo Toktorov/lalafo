@@ -251,7 +251,11 @@
                         
                         <div class="product-prices">
                             <!-- <span class="old-price">$35.90</span> -->
-                            <span class="sale-price">{{ post.price }} KGZ</span>
+                            {% if post.currency != "Договорная" %}
+                            <span class="sale-price">{{ post.price }} {{ post.currency }}</span>
+                            {% else %}
+                            <span class="sale-price">{{ post.currency }}</span>
+                            {% endif %}
                             <span class="discount-percentage">Написать пользователю</span>
                         </div>
                         <div class="product-description">
@@ -271,6 +275,18 @@
                             <p class="panel-product-actions"><a href="shop-single.html#" class="action-btn wishlist"><i class="icon-heart"></i> Добавить в список желаний </a></p>
                             <p class="panel-product-actions"><button class="action-btn wishlist"><i class="icon-sliders"></i> Добавить к сравнению</button></p>
                         </div>
+                        <div class="product-additional-info">
+                        {% if request.user == post.user %}
+                        
+                        <a href="{% url 'post_update' post.id %}"><button class="btn btn-outline-dark">Обновить</button></a>
+                            
+                       
+                        </div>
+                        
+                        
+                        <a href="{% url 'post_delete' post.id %}"><button class="btn btn-outline-danger">Удалить</button></a>
+                       
+                        {% endif %}
                     <!-- Shop Single End -->
                 </div>
             </div>
@@ -485,8 +501,12 @@
                                     </div>
                                     <h4 class="product-name"><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h4>
                                     <div class="product-price">
-                                        <span class="sale-price">{{ post.price }} KGZ</span>
+                                        {% if post.currency != "Договорная" %}
+                                        <span class="sale-price">{{ post.price }} {{ post.currency }}</span>
                                         <!-- <span class="old-price">$23.90</span> -->
+                                        {% else %}
+                                        <span class="sale-price">{{ post.currency }}</span>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
