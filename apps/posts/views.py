@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from apps.posts.models import Post
+from apps.posts.models import Post, PostImage
 from apps.settings.models import Setting
 from apps.categories.models import Category
 
