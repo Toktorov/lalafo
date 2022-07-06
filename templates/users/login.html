@@ -1,5 +1,6 @@
 {% extends 'homepage.html' %}
 {% load static %}
+{% load socialaccount %}
 {% block content %}
 
 
@@ -164,6 +165,9 @@
                                 <button class="btn btn-primary">Войти</button>
                             </div>
                         </form>
+                       
+                            <a href="{% provider_login_url 'google' %}"><button class="btn btn-outline-primary">Google</button></a>
+                        
                         <p><a href="login.html#">Lost your password?</a></p>
                         <p>No account? <a href="register.html">Create one here.</a></p>
                     </div>

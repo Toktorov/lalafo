@@ -11,10 +11,3 @@ def index(request):
         'posts' : posts,
     }
     return render(request, 'index.html', context)
-
-def post_create(request):
-    setting = Setting.objects.latest('id')
-    context = {
-        'setting' : setting,
-    }
-    return render(request, 'posts/create.html', context)
