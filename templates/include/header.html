@@ -275,10 +275,10 @@
                             <li><a href="{% url 'post_create' %}">Подать объявление</a></li>
                         </li>
                         <li class="active">
-                            <a href="index.html#">{{user.username}}</a>
+                            <a href="index.html#">{{request.user.username}}</a>
                             <ul class="sub-menu">
                                 <li><a href="{% url 'logout' %}">Выйти</a></li>
-                                <li><a href="index-2.html">Мой аккаунт</a></li>
+                                <li><a href="{% url 'profile' user.id %}">Мой аккаунт</a></li>
                                 <li><a href="index-3.html">Настройки</a></li>
                                 <li><a href="index-4.html">Редактировать профиль</a></li>
                             </ul>

@@ -3,6 +3,7 @@ from apps.settings.models import Setting
 from apps.users.models import User
 from django.shortcuts import HttpResponse
 from django.contrib.auth import login, authenticate
+from apps.posts.models import Post
 
 # Create your views here.
 def register(request):
@@ -49,3 +50,52 @@ def user_login(request):
         'setting' : setting,
     }
     return render(request, 'users/login.html', context)
+
+def profile(request, id):
+    setting = Setting.objects.latest('id')
+    user = User.objects.get(id = id)
+    posts = Post.objects.all()
+    context = {
+        'user' : user,
+        'setting' : setting,
+        'posts' : posts
+    }
+    return render(request, 'users/profile.html', context)
+
+def profile_update(request, id):
+    setting = Setting.objects.latest('id')
+    user = User.objects.get(id = id)
+    if request.method == "POST":
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        profile_image = request.POST.get('profile_image')
+        phone = request.POST.get('phone')
+        user = User.objects.get(id = id)
+        user.first_name = first_name
+        user.last_name = last_name
+        user.username = username 
+        user.email = email 
+        user.profile_image = profile_image
+        user.phone = phone 
+        user.save()
+        return redirect('profile', user.id)
+    context = {
+        'setting' : setting,
+        'user' : user
+    }
+    return render(request, 'users/update.html', context)
+
+def profile_delete(request, id):
+    setting = Setting.objects.latest('id')
+    user = User.objects.get(id = id)
+    if request.method == "POST":
+        user = User.objects.get(id = id)
+        user.delete()
+        return redirect('index')
+    context = {
+        'user' : user,
+        'setting' : setting,
+    }
+    return render(request, 'users/delete.html', context)

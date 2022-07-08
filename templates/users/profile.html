@@ -1,0 +1,389 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+
+
+    {% include 'include/header.html' %}
+
+
+    <!-- off Canvas Start -->
+    <div class="off-canvas-box">
+        <div class="canvas-action">
+            <a class="action" href="my-account.html#"><i class="icon-sliders"></i> Compare <span class="action-num">(0)</span></a>
+            <a class="action" href="my-account.html#"><i class="icon-heart"></i> Wishlist <span class="action-num">(0)</span></a>
+        </div>
+        <div class="canvas-close-bar">
+            <span>Menu</span>
+            <a class="menu-close" href="my-account.html#"><i class="icon-arrow-left"></i></a>
+        </div>
+        <div class="canvas-menu">
+            <nav>
+                <ul>
+                    <li class="active">
+                        <a href="my-account.html#">Home</a>
+                        <ul class="sub-menu">
+                            <li><a href="index.html">Home 01</a></li>
+                            <li><a href="index-2.html">Home 02</a></li>
+                            <li><a href="index-3.html">Home 03</a></li>
+                            <li><a href="index-4.html">Home 04</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="my-account.html#">Shop</a>
+                        <ul class="mega-sub-menu">
+                            <li>
+                                <a href="my-account.html#" class="menu-title">Shop Grid</a>
+
+                                <ul class="menu-item">
+                                    <li><a href="shop-grid-3-column.html">Shop Grid 3 Column</a></li>
+                                    <li><a href="shop-grid-4-column.html">Shop Grid 4 Column</a></li>
+                                    <li><a href="shop-grid-left-sidebar.html">Shop Grid Left Sidebar</a></li>
+                                    <li><a href="shop-grid-right-sidebar.html">Shop Grid Right Sidebar</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="my-account.html#" class="menu-title">Shop List</a>
+
+                                <ul class="menu-item">
+                                    <li><a href="shop-list.html">Shop List</a></li>
+                                    <li><a href="shop-list-left-sidebar.html">Shop List Left Sidebar</a></li>
+                                    <li><a href="shop-list-right-sidebar.html">Shop List Right Sidebar</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="my-account.html#" class="menu-title">Shop Single</a>
+
+                                <ul class="menu-item">
+                                    <li><a href="shop-single.html">Shop Single</a></li>
+                                    <li><a href="shop-single-affiliate.html">Shop Single Affiliate</a></li>
+                                    <li><a href="shop-single-gallery.html">Shop Single Gallery</a></li>
+                                    <li><a href="shop-single-group.html">Shop Single Group</a></li>
+                                    <li><a href="shop-single-sticky.html">Shop Single Sticky</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="my-account.html#" class="menu-title">Page</a>
+
+                                <ul class="menu-item">
+                                    <li><a href="cart.html">Cart</a></li>
+                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                    <li><a href="compare.html">Compare</a></li>
+                                    <li><a href="checkout.html">Checkout</a></li>
+                                    <li><a href="my-account.html">My Account</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="my-account.html#">Page</a>
+                        <ul class="sub-menu">
+                            <li><a href="cart.html">Cart</a></li>
+                            <li><a href="wishlist.html">Wishlist</a></li>
+                            <li><a href="compare.html">Compare</a></li>
+                            <li><a href="empty-cart.html">Empty Cart</a></li>
+                            <li><a href="checkout.html">Checkout</a></li>
+                            <li><a href="my-account.html">My Account</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="register.html">Register</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="my-account.html#">Blog</a>
+                        <ul class="sub-menu">
+                            <li><a href="my-account.html#">Blog Grid</a>
+                                <ul class="sub-menu">
+                                    <li><a href="blog-grid.html">Blog Grid</a></li>
+                                    <li><a href="blog-grid-left-sidebar.html">Blog Grid Left Sidebar</a></li>
+                                    <li><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="my-account.html#">Blog List</a>
+                                <ul class="sub-menu">
+                                    <li><a href="blog-list-left-sidebar.html">Blog List Left Sidebar</a></li>
+                                    <li><a href="blog-list-right-sidebar.html">Blog List Right Sidebar</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="my-account.html#">Blog Details</a>
+                                <ul class="sub-menu">
+                                    <li><a href="blog-details-left-sidebar.html">Blog details Left Sidebar</a></li>
+                                    <li><a href="blog-details-right-sidebar.html">Blog details Right Sidebar</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- off Canvas End -->
+
+    <div class="menu-overlay"></div>
+
+
+    <!-- Page Banner Start -->
+    <div class="page-banner-section section">
+        <div class="container">
+            <!-- Pager Banner Start -->
+            <div class="page-banner-content text-center">
+                <h2 class="page-banner-title">Мой аккаунт</h2>
+                <ul class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="index.html">Домой</a></li>
+                    <li class="breadcrumb-item active">Мой аккаунт</li>
+                    <li class="breadcrumb-item active">{{ user.username }}</li>
+                </ul>
+            </div>
+            <!-- Pager Banner End -->
+        </div>
+    </div>
+    <!-- Page Banner End -->
+
+    <!-- Shopping Cart Section Start -->
+    <div class="section section-padding mt-n6">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-md-4">
+                    <!-- My Account Menu Start -->
+                    <div class="my-account-menu mt-6">
+                        <ul class="nav account-menu-list flex-column">
+                            <li>
+                                <a data-bs-toggle="pill" href="my-account.html#pills-order"><i class="fa fa-shopping-cart"></i> Мои объявления</a>
+                            </li>
+                            
+                            
+                            <li>
+                                <a href="{% url 'profile_update' user.id %}"><i class="fa fa-user"></i> Редактировать профиль</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'profile_delete' user.id %}"><i class="fa fa-trash"></i> Удалить профиль</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Выйти</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- My Account Menu End -->
+                </div>
+                <div class="col-xl-9 col-md-8">
+                    <!-- Tab content start -->
+                    <div class="tab-content my-account-tab mt-6" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-dashboard">
+                            <div class="my-account-dashboard account-wrapper">
+                                <div class="welcome-dashboard">
+                                    <p>Имя пользователя: {{ user.username }}<p>
+                                    <p>Имя: {{ user.last_name }}</p>
+                                    <p>Фамилия: {{ user.first_name }}</p>
+                                    <p>Почта: {{ user.email }}</p>
+                                    <p>Телефонный номер: {{ user.phone }}</p>   
+                                </div>
+                                <div class="welcome-dashboard">
+                                 
+                                <h4 class="account-title">Мои объявления</h4>
+                                </div>
+                                <p class="mt-25">Вот ваши объявления которые вы создали</p>
+                            </div>
+                        </div>
+                    
+                        <div class="tab-pane fade" id="pills-download">
+                            <div class="my-account-download account-wrapper">
+                                <h4 class="account-title">Download</h4>
+                                <div class="account-table text-center mt-30 table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="name">Product</th>
+                                                <th class="date">Date</th>
+                                                <th class="status">Expire</th>
+                                                <th class="action">Download</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Mostarizing Oil</td>
+                                                <td>Aug 22, 2020</td>
+                                                <td>Yes</td>
+                                                <td><a href="my-account.html#">Download File</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Katopeno Altuni</td>
+                                                <td>July 22, 2020</td>
+                                                <td>Never</td>
+                                                <td><a href="my-account.html#">Download File</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-payment">
+                            <div class="my-account-payment account-wrapper">
+                                <h4 class="account-title">Payment Method</h4>
+                                <p class="mt-30">You Can't Saved Your Payment Method yet.</p>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-address">
+                            <div class="my-account-address account-wrapper">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4 class="account-title">Billing address</h4>
+                                        <div class="account-address mt-30">
+                                            <h6 class="name">Alex Tuntuni</h6>
+                                            <p>1355 Market St, Suite 900 <br> San Francisco, CA 94103</p>
+                                            <p>Mobile: (123) 456-7890</p>
+                                            <a class="btn btn-primary" href="my-account.html#"><i class="fa fa-edit"></i> Edit Address</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h4 class="account-title">Shipping address</h4>
+                                        <div class="account-address mt-30">
+                                            <h6 class="name">Alex Tuntuni</h6>
+                                            <p>1355 Market St, Suite 900 <br> San Francisco, CA 94103</p>
+                                            <p>Mobile: (123) 456-7890</p>
+                                            <a class="btn btn-primary" href="my-account.html#"><i class="fa fa-edit"></i> Edit Address</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-account">
+                            <div class="my-account-details account-wrapper">
+                                <h4 class="account-title">Account Details</h4>
+
+                                <div class="account-details">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="single-form">
+                                                <label class="form-label">First Name</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="single-form">
+                                                <label class="form-label">Last Name</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="single-form">
+                                                <label class="form-label">Display Name</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="single-form">
+                                                <label class="form-label">Email address</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="single-form">
+                                                <h5 class="title">Password change</h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="single-form">
+                                                <label class="form-label">Current Password</label>
+                                                <input type="password" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="single-form">
+                                                <label class="form-label">New Password</label>
+                                                <input type="password" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="single-form">
+                                                <label class="form-label">Confirm Password</label>
+                                                <input type="password" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="single-form">
+                                                <button class="btn btn-primary btn-hover-dark">Save Change</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+
+                        <!-- Product Wrapper Start -->
+                        <div class="product-wrapper product-active mt-n1">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    {% for post in user.post_user.all %}
+                                    <div class="swiper-slide" id = "pills-dashboard">
+                                        <!-- Product Item Start -->
+                                        <div class="product-item">
+                                            <div class="image-block">
+                                                <a href="{% url 'post_detail' post.id %}">
+                                                    <img src="{{ post.post_image.url }}" alt="">
+                                                    <img class="image-hover" src="{{ post.post_image.url }}" alt="">
+                                                </a>
+                                                
+                                                <div class="product-action">
+                                                    <a class="action-btn add-cart" href="shop-single.html#"><i class="icon-shopping-bag2"></i></a>
+                                                    <a class="action-btn wishlist " href="shop-single.html#"><i class="icon-heart"></i></a>
+                                                    <!-- <a class="action-btn compare" href="shop-single.html#"><i class="icon-sliders"></i></a> -->
+                                                    <a class="action-btn quick-view" href="{% url 'post_detail' post.id %}" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="product-desc">
+                                                <div class="product-features-reviews">
+                                                    <a href="shop-single.html#" class="features">{{ post.category }}</a>
+
+                                                    <div class="review-star">
+                                                        <div class="star" style="width: 80%;"></div>
+                                                    </div>
+                                                </div>
+                                                <h4 class="product-name"><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h4>
+                                                <div class="product-price">
+                                                    {% if post.currency != "Договорная" %}
+                                                    <span class="sale-price">{{ post.price }} {{ post.currency }}</span>
+                                                    <!-- <span class="old-price">$23.90</span> -->
+                                                    {% else %}
+                                                    <span class="sale-price">{{ post.currency }}</span>
+                                                    {% endif %}
+                                                </div>
+                                                <h4 class="product-name"><a href="{% url 'post_detail' post.id %}">{{ post.user }}</a></h4>
+                                            </div>
+                                        </div>
+                                        <!-- Product Item End -->
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+        
+
+                        
+                    </div>
+                        
+                    <!-- Tab content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Shopping Cart Section End -->
+
+    {% include 'include/footer.html' %}
+
+
+    <!--Back To Start-->
+    <a href="my-account.html#" class="back-to-top">
+        <i class="icon-chevron-up"></i>
+    </a>
+    <!--Back To End-->
+
+
+
+
+{% endblock %}
