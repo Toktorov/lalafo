@@ -14,43 +14,36 @@
     <!-- Slider Start -->
     <div class="section">
         <div class="swiper-container slider-active">
+            {% for post in posts %}
+            {% if post.status == "Pro" %}
             <div class="swiper-wrapper">
                 <!-- Single Slider Start -->
-                <div class="single-slider swiper-slide animation-style-01" style="background-image: url(assets/images/slider/slider-01.jpg);">
+                <div class="single-slider swiper-slide animation-style-01" >
                     <div class="container">
                         <!-- Slider Content Start -->
-                        <div class="slider-content">
-                            <h5 class="sub-title">Sale Offer 20% Off This Week</h5>
-                            <h2 class="main-title">2020 Amazing <br> Barber Shop</h2>
-                            <p>Light knit upper adapts to the shape of your foot for flexible and natural movement.</p>
-                            <a href="shop-list.html" class="btn btn-primary btn-hover-dark">Shopping Now</a>
+                        <div class="slider-content" style="display: flex ; max-width: 100%; justify-content: space-between;"  >
+                            <div>
+                                <h5 class="sub-title">{{ post.category }}</h5>
+                                <h5 class="main-title">{{ post.title |truncatewords:4 }}</h5>
+                                <p>{{ post.description | truncatewords:25 }}</p>
+                                <a href="shop-list.html" class="btn btn-primary btn-hover-dark">Посмотреть объявление</a>
+                            </div>
+                            <img class="main-title" style="width: 400px; height:500px; float: right;" src="{{post.post_image.url}}" alt="">
                         </div>
                         <!-- Slider Content End -->
                     </div>
                 </div>
                 <!-- Single Slider End -->
-                <!-- Single Slider Start -->
-                <div class="single-slider swiper-slide animation-style-01" style="background-image: url(assets/images/slider/slider-02.jpg);">
-                    <div class="container">
-                        <!-- Slider Content Start -->
-                        <div class="slider-content">
-                            <h5 class="sub-title">Sale Offer 20% Off This Week</h5>
-                            <h2 class="main-title">2020 Amazing <br> Barber Shop</h2>
-                            <p>Light knit upper adapts to the shape of your foot for flexible and natural movement.</p>
-                            <a href="shop-list.html" class="btn btn-primary btn-hover-dark">Shopping Now</a>
-                        </div>
-                        <!-- Slider Content End -->
-                    </div>
-                </div>
-                <!-- Single Slider End -->
+                {% endif %}
+                {% endfor %}
             </div>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- Add Arrows -->
-            <div class="swiper-button-next d-none"></div>
-            <div class="swiper-button-prev d-none"></div>
         </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- Add Arrows -->
+        <div class="swiper-button-next d-none"></div>
+        <div class="swiper-button-prev d-none"></div>
     </div>
     <!-- Slider End -->
    <!-- Related Product Start -->

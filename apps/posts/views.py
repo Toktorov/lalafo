@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from apps.posts.models import Post, PostImage
 from apps.settings.models import Setting
 from apps.categories.models import Category
+from django.db.models import Q
 
 # Create your views here.
 def post_detail(request, id):
@@ -83,3 +84,16 @@ def post_delete(request, id):
         'post' : post,
     }
     return render(request, 'posts/delete.html', context)
+
+def post_search(request):
+    posts = Post.objects.all()
+    setting = Setting.objects.latest('id')
+    qury_object = request.GET.get('key')
+    if qury_object:
+        posts = Post.objects.filter(Q(title__icontains = qury_object) | Q(description__icontains = qury_object))
+    context = {
+        'setting' : setting,
+        'posts' : posts
+    }
+    return render(request, 'posts/search.html', context)
+    

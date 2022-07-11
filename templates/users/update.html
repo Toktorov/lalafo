@@ -170,30 +170,30 @@
                             {% csrf_token %}
                             <div class="single-form">
                                 <label for="img">Загрузите новое фото</label>
-                                <input type="file" class="form-control" id="img" name="profile_image" accept="image/*">
+                                <input type="file" value = "{{user.profile_image}}" class="form-control" id="img" name="profile_image" accept="image/*">
                             </div>
                             <div class="single-form">
                                 <lмabel class="form-label">Имя</lмabel>
-                                <input type="text" name = "last_name"  class="form-control">
+                                <input type="text" value = "{{user.last_name}}" name = "last_name"  class="form-control">
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Фамилия</label>
-                                <input type="text" name = "first_name" class="form-control">
+                                <input type="text" value = "{{ user.first_name }}" name = "first_name" class="form-control">
                             </div>
                             
                             <div class="single-form">
                                 <label class="form-label">Имя пользователя *</label>
-                                <input type="text" name = "username" class="form-control">
+                                <input type="text" value = "{{user.username}}" name = "username" class="form-control">
                             </div>
                             
                             <div class="single-form">
                                 <label class="form-label">Почта</label>
-                                <input type="text" name = "email" class="form-control">
+                                <input type="text" value = "{{ user.email }}" name = "email" class="form-control">
                             </div>
 
                             <div class="single-form">
                                 <label class="form-label">Телефонный номер</label>
-                                <input type="tel" name = "phone" class="form-control">
+                                <input type="tel" value = "{{ user.phone }}" name = "phone" class="form-control">
                             </div>
                             
                             

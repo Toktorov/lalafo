@@ -170,15 +170,15 @@
                             {% csrf_token %}
                             <div class="single-form">
                                 <label for="img">Загрузите фото</label>
-                                <input type="file" class="form-control" id="img" name="post_image" accept="image/*">
+                                <input type="file" value = "{{post.post_image}}" class="form-control" id="img" name="post_image" accept="image/*">
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Заговок</label>
-                                <input type="text" name = "title"  class="form-control">
+                                <input type="text" value = "{{ post.title }}" name = "title"  class="form-control">
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Описание</label>
-                                <input type="text" name = "description" class="form-control">
+                                <input type="text" value = "{{ post.description }}" name = "description" class="form-control">
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Категория</label>
@@ -190,7 +190,7 @@
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Цена *</label>
-                                <input type="text" name = "price" class="form-control">
+                                <input type="text" value = "{{ post.price }}" name = "price" class="form-control">
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Выберите валюту</label>
@@ -204,7 +204,7 @@
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Телефонный номер</label>
-                                <input type="tel" name = "phone" class="form-control">
+                                <input type="tel" value = "{{ post.phone }}" name = "phone" class="form-control">
                             </div>
                             
                             

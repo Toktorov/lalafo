@@ -23,8 +23,13 @@ class Post(models.Model):
     )
     currency = models.CharField(choices=CHOICE_CURRENCY, default='Договорная', max_length=100)
     phone = models.CharField(max_length=100, default="+99677777777")
-    
     created = models.DateTimeField(auto_now_add=True)
+    STATUS_POST = (
+        ('Free', 'Free'),
+        ('Pro', 'Pro'),
+    )
+    status = models.CharField(choices=STATUS_POST, max_length=10, default='Free')
+    
 
     def __str__(self):
         return self.title 

@@ -10,9 +10,10 @@
 
                     <!-- Header Search Start -->
                     <div class="header-search">
-                        <form action="index.html#">
-                            <input type="text" placeholder="Search our catalog">
-                            <button><i class="icon-search"></i></button>
+                        <form action="{% url 'post_search' %}">
+                            {% csrf_token %}
+                            <input type="search" name = "key" placeholder="Искать товары">
+                            <button type = "submit"><i class="icon-search"></i></button>
                         </form>
                     </div>
                     <!-- Header Search End -->
@@ -392,7 +393,7 @@
             <!-- Header Search Start -->
             <div class="header-search">
                 <form action="index.html#">
-                    <input type="text" placeholder="Search our catalog">
+                    <input type="text" placeholder="Искать товары">
                     <button><i class="icon-search"></i></button>
                 </form>
             </div>
