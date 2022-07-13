@@ -169,8 +169,12 @@
                         <form method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="single-form">
-                                <label for="img">Загрузите фото</label>
+                                <label for="img">Загрузите основное фото</label>
                                 <input type="file" class="form-control" id="img" name="post_image" accept="image/*">
+                            </div>
+                            <div class="single-form">
+                                <label for="img">Загрузите дополнительное фото</label>
+                                <input type="file" class="form-control" name="post_images" multiple>
                             </div>
                             <div class="single-form">
                                 <label class="form-label">Заговок</label>

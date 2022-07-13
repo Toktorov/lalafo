@@ -65,7 +65,11 @@
                         <!-- Product Item Start -->
                         <div class="product-item">
                             <div class="image-block">
+                                {% if post.slug %}
+                                <a href="{% url 'post_detail_slug' post.slug %}">
+                                {% else %}
                                 <a href="{% url 'post_detail' post.id %}">
+                                {% endif %}
                                     <img src="{{ post.post_image.url }}" alt="">
                                     <img class="image-hover" src="{{ post.post_image.url }}" alt="">
                                 </a>
@@ -74,7 +78,11 @@
                                     <a class="action-btn add-cart" href="shop-single.html#"><i class="icon-shopping-bag2"></i></a>
                                     <a class="action-btn wishlist " href="shop-single.html#"><i class="icon-heart"></i></a>
                                     <!-- <a class="action-btn compare" href="shop-single.html#"><i class="icon-sliders"></i></a> -->
+                                    {% if post.slug %}
+                                    <a class="action-btn quick-view" href="{% url 'post_detail_slug' post.slug %}" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
+                                    {% else %}
                                     <a class="action-btn quick-view" href="{% url 'post_detail' post.id %}" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="product-desc">
@@ -85,7 +93,11 @@
                                         <div class="star" style="width: 80%;"></div>
                                     </div>
                                 </div>
+                                {% if post.slug %}
+                                <h4 class="product-name"><a href="{% url 'post_detail_slug' post.slug %}">{{ post.title }}</a></h4>
+                                {% else %}
                                 <h4 class="product-name"><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h4>
+                                {% endif %}
                                 <div class="product-price">
                                     {% if post.currency != "Договорная" %}
                                     <span class="sale-price">{{ post.price }} {{ post.currency }}</span>
@@ -94,8 +106,12 @@
                                     <span class="sale-price">{{ post.currency }}</span>
                                     {% endif %}
                                 </div>
-                                <h4 class="product-name"><a href="{% url 'post_detail' post.id %}">{{ post.user }}</a></h4>
-
+                                {% if post.slug %}
+                                <h4 class="product-name"><a href="{% url 'post_detail_slug' post.slug %}">{{ post.user }}</a></h4>
+                                {% else %}
+                                <h4 class="product-name"><a href="{% url 'post_detail_slug' post.id %}">{{ post.user }}</a></h4>
+                                {% endif %}
+                                
                             </div>
                         </div>
                         <!-- Product Item End -->

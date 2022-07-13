@@ -1,10 +1,8 @@
-from distutils.command.upload import upload
-from locale import currency
-from tabnanny import verbose
-from unicodedata import category
 from django.db import models
 from apps.users.models import User
 from apps.categories.models import Category
+from django.db.models.signals import pre_save
+from apps.posts.slug_generator import unique_slug_generators
 
 # Create your models here.
 class Post(models.Model):
@@ -29,7 +27,7 @@ class Post(models.Model):
         ('Pro', 'Pro'),
     )
     status = models.CharField(choices=STATUS_POST, max_length=10, default='Free')
-    
+    slug = models.SlugField(blank=True, null = True, unique = True, verbose_name="Человекопонятный URL (само генерация)")
 
     def __str__(self):
         return self.title 
@@ -45,3 +43,10 @@ class PostImage(models.Model):
     class Meta:
         verbose_name = "Дополнительная фотография"
         verbose_name_plural = "Дополнительные фотографии"
+
+def slag_pre_save_receiver(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = unique_slug_generators(instance)
+
+
+pre_save.connect(slag_pre_save_receiver, sender=Post)

@@ -16,6 +16,17 @@ def post_detail(request, id):
         'random_posts' : random_posts,
     }
     return render(request, 'posts/shop-single.html', context)
+    
+def post_detail_slug(request, slug):
+    post = Post.objects.get(slug = slug)
+    setting = Setting.objects.latest('id')
+    random_posts = Post.objects.all().order_by('?')
+    context = {
+        'setting' : setting,
+        'post' : post,
+        'random_posts' : random_posts,
+    }
+    return render(request, 'posts/shop-single.html', context)
 
 def post_create(request):
     setting = Setting.objects.latest('id')
@@ -29,7 +40,10 @@ def post_create(request):
         currency = request.POST.get('currency')
         phone = request.POST.get('price')
         category = request.POST.get('category')
+        post_images = request.FILES.getlist('post_images')
         post = Post.objects.create(user = request.user, title = title, post_image = post_image, description = description, price = price, currency = currency, phone = phone, category_id = category)
+        for p_image in post_images:
+            PostImage.objects.create(post_id = post.id, image = p_image)
         return redirect('index')
         # except:
         #     return HttpResponse("Error")
