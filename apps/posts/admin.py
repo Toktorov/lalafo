@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.posts.models import Post, PostImage
+from apps.posts.models import Post, PostImage, FavoritePost
 
 # Register your models here.
 class ProductImageAdmin(admin.TabularInline):
@@ -11,3 +11,4 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug" : ("title", )}
 
 admin.site.register(Post, ProductAdmin)
+admin.site.register(FavoritePost)

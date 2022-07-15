@@ -1,3 +1,4 @@
+from tabnanny import verbose
 from django.db import models
 from apps.users.models import User
 from apps.categories.models import Category
@@ -27,6 +28,7 @@ class Post(models.Model):
         ('Pro', 'Pro'),
     )
     status = models.CharField(choices=STATUS_POST, max_length=10, default='Free')
+    valid = models.BooleanField(default=True, verbose_name="Действительный пост")
     slug = models.SlugField(blank=True, null = True, unique = True, verbose_name="Человекопонятный URL (само генерация)")
 
     def __str__(self):
@@ -43,6 +45,17 @@ class PostImage(models.Model):
     class Meta:
         verbose_name = "Дополнительная фотография"
         verbose_name_plural = "Дополнительные фотографии"
+
+class FavoritePost(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="favorite_user", verbose_name="Пользователь которому понравилось пост")
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="favorite_post", verbose_name="Пост которому понравилось пост")
+
+    def __str__(self):
+        return f"{self.user.username} {self.post.title}"
+
+    class Meta:
+        verbose_name = "Понравилось пост"
+        verbose_name_plural = "Понравились посты"
 
 def slag_pre_save_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:

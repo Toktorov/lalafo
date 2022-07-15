@@ -61,6 +61,7 @@
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     {% for post in posts %}
+                    {% if post.valid == True %}
                     <div class="swiper-slide">
                         <!-- Product Item Start -->
                         <div class="product-item">
@@ -116,6 +117,7 @@
                         </div>
                         <!-- Product Item End -->
                     </div>
+                    {% endif %}
                     {% endfor %}
             </div>
             <!-- Add Arrows -->

@@ -91,9 +91,8 @@
         Product Active
     -----------------------------------*/
     var product = new Swiper('.product-active .swiper-container', {
-        slidesPerView: 4,
+        slidesPerView: 1,
         spaceBetween: 0,
-        loop: true,
         watchSlidesVisibility: true,
         navigation: {
             nextEl: '.product-active .swiper-button-next',
@@ -124,7 +123,7 @@
         Product Active 2
     -----------------------------------*/
     var product = new Swiper('.product-active-2 .swiper-container', {
-        slidesPerView: 4,
+        slidesPerView: 1,
         spaceBetween: 0,
         loop: true,
         watchSlidesVisibility: true,
@@ -160,7 +159,7 @@
         Blog Active
     -----------------------------------*/
     var blog = new Swiper('.blog-active .swiper-container', {
-        slidesPerView: 3,
+        slidesPerView: 1,
         spaceBetween: 30,
         loop: true,
         navigation: {

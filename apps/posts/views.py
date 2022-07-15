@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from apps.posts.models import Post, PostImage
+from apps.posts.models import Post, PostImage, FavoritePost
 from apps.settings.models import Setting
 from apps.categories.models import Category
 from django.db.models import Q
@@ -10,6 +10,26 @@ def post_detail(request, id):
     post = Post.objects.get(id = id)
     setting = Setting.objects.latest('id')
     random_posts = Post.objects.all().order_by('?')
+    if request.method == "POST":
+        if 'valid' in request.POST:
+            post = Post.objects.get(id = id)
+            if post.valid == True:
+                post.valid = False
+                post.save()
+                return redirect('profile', request.user.id)
+            else:
+                post.valid = True
+                post.save()
+                return redirect('index')
+        if request.method == "POST":
+            if 'like' in request.POST:
+                try:
+                    like = FavoritePost.objects.get(user=request.user, post = post)
+                    like.delete()
+                except:
+                    FavoritePost.objects.create(user = request.user, post = post)
+
+
     context = {
         'setting' : setting,
         'post' : post,
@@ -21,6 +41,24 @@ def post_detail_slug(request, slug):
     post = Post.objects.get(slug = slug)
     setting = Setting.objects.latest('id')
     random_posts = Post.objects.all().order_by('?')
+    if request.method == "POST":
+        if 'valid' in request.POST:
+            post = Post.objects.get(slug = slug)
+            if post.valid == True:
+                post.valid = False
+                post.save()
+                return redirect('profile', request.user.id)
+            else:
+                post.valid = True
+                post.save()
+                return redirect('index')
+        if request.method == "POST":
+            if 'like' in request.POST:
+                try:
+                    like = FavoritePost.objects.get(user=request.user, post = post)
+                    like.delete()
+                except:
+                    FavoritePost.objects.create(user = request.user, post = post)
     context = {
         'setting' : setting,
         'post' : post,

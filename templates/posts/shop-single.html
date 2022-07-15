@@ -209,7 +209,7 @@
                             {% else %}
                             <span class="sale-price">{{ post.currency }}</span>
                             {% endif %}
-                            <span class="discount-percentage">Написать пользователю</span>
+                            <a href="tel: {{ post.phone }}"><span class="discount-percentage">Позвонить пользователю {{ post.phone }}</span></a>
                         </div>
                         <div class="product-description">
                             <ul>
@@ -228,18 +228,40 @@
                             <p class="panel-product-actions"><a href="shop-single.html#" class="action-btn wishlist"><i class="icon-heart"></i> Добавить в список желаний </a></p>
                             <p class="panel-product-actions"><button class="action-btn wishlist"><i class="icon-sliders"></i> Добавить к сравнению</button></p>
                         </div>
+                        <p class="panel-product-actions">Создано: {{ post.created }}</p>
+                        <p class="panel-product-actions">Понравилось: {{ post.favorite_post.all.count }}</p>
                         <div class="product-additional-info">
                         {% if request.user == post.user %}
                         
-                        <a href="{% url 'post_update' post.id %}"><button class="btn btn-outline-dark">Обновить</button></a>
-                            
-                       
-                        </div>
                         
                         
+                    </div>
+                    
+                    
+                        <a href="{% url 'post_update' post.id %}"><button class="btn btn-outline-primary">Обновить</button></a>
                         <a href="{% url 'post_delete' post.id %}"><button class="btn btn-outline-danger">Удалить</button></a>
-                       
+                        {% if post.valid == True %}
+                        <form method = "POST">
+                            {% csrf_token %}
+                            <div class="single-form">
+                                <input class="btn btn-primary" name = "valid" type="submit" value="Деактивировать">
+                            </div>
+                        </form>
+                        {% else %}
+                        <form method = "POST">
+                            {% csrf_token %}
+                            <div class="single-form">
+                                <input class="btn btn-success" name = "valid" type="submit" value="Активировать">
+                            </div>
+                        </form>
                         {% endif %}
+                        {% endif %}
+                        <form method = "POST">
+                            {% csrf_token %}
+                            <div class="single-form">
+                                <input class="btn btn-success" name = "like" type="submit" value="Понравилось">
+                            </div>
+                        </form>
                     <!-- Shop Single End -->
                 </div>
             </div>

@@ -149,7 +149,9 @@
                             <li>
                                 <a data-bs-toggle="pill" href="my-account.html#pills-order"><i class="fa fa-shopping-cart"></i> Мои объявления</a>
                             </li>
-                            
+                            <li>
+                                <a href="{% url 'user_favorites' %}"><i class="icon-heart "></i> Избранное</a>
+                            </li>
                             
                             <li>
                                 <a href="{% url 'profile_update' user.id %}"><i class="fa fa-user"></i> Редактировать профиль</a>
@@ -178,7 +180,7 @@
                                 </div>
                                 <div class="welcome-dashboard">
                                  
-                                <h4 class="account-title">Мои объявления</h4>
+                                <h4  class="account-title">Мои активные объявления</h4>
                                 </div>
                                 <p class="mt-25">Вот ваши объявления которые вы создали</p>
                             </div>
@@ -317,6 +319,7 @@
                             <div class="swiper-container">
                                 <div class="swiper-wrapper">
                                     {% for post in user.post_user.all %}
+                                    {% if post.valid == True %}
                                     <div class="swiper-slide" id = "pills-dashboard">
                                         <!-- Product Item Start -->
                                         <div class="product-item">
@@ -355,6 +358,7 @@
                                         </div>
                                         <!-- Product Item End -->
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                             </div>
@@ -362,10 +366,69 @@
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
                         </div>
-        
-
-                        
                     </div>
+
+                    
+                    <!-- Product Wrapper Start -->
+                    <div class="product-wrapper product-active mt-n1">
+                        <div class="welcome-dashboard">
+                                 
+                            <h4 class="account-title" style="font-size: 24px; font-weight: 500; color: #000; font-family: 'Karla', sans-serif;">Мои не активные объявления</h4>
+                            </div>
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                {% for post in user.post_user.all %}
+                                {% if post.valid == False %}
+                                <div class="swiper-slide" id = "pills-dashboard">
+                                    <!-- Product Item Start -->
+                                    <div class="product-item">
+                                        <div class="image-block">
+                                            <a href="{% url 'post_detail' post.id %}">
+                                                <img src="{{ post.post_image.url }}" alt="">
+                                                <img class="image-hover" src="{{ post.post_image.url }}" alt="">
+                                            </a>
+                                            
+                                            <div class="product-action">
+                                                <a class="action-btn add-cart" href="shop-single.html#"><i class="icon-shopping-bag2"></i></a>
+                                                <a class="action-btn wishlist " href="shop-single.html#"><i class="icon-heart"></i></a>
+                                                <!-- <a class="action-btn compare" href="shop-single.html#"><i class="icon-sliders"></i></a> -->
+                                                <a class="action-btn quick-view" href="{% url 'post_detail' post.id %}" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-desc">
+                                            <div class="product-features-reviews">
+                                                <a href="shop-single.html#" class="features">{{ post.category }}</a>
+
+                                                <div class="review-star">
+                                                    <div class="star" style="width: 80%;"></div>
+                                                </div>
+                                            </div>
+                                            <h4 class="product-name"><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h4>
+                                            <div class="product-price">
+                                                {% if post.currency != "Договорная" %}
+                                                <span class="sale-price">{{ post.price }} {{ post.currency }}</span>
+                                                <!-- <span class="old-price">$23.90</span> -->
+                                                {% else %}
+                                                <span class="sale-price">{{ post.currency }}</span>
+                                                {% endif %}
+                                            </div>
+                                            <h4 class="product-name"><a href="{% url 'post_detail' post.id %}">{{ post.user }}</a></h4>
+                                        </div>
+                                    </div>
+                                    <!-- Product Item End -->
+                                </div>
+                                {% endif %}
+
+                                
+                                {% endfor %}
+    
+                            </div>
+                        </div>
+            
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
                         
                     <!-- Tab content End -->
                 </div>

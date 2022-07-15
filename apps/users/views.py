@@ -3,7 +3,7 @@ from apps.settings.models import Setting
 from apps.users.models import User
 from django.shortcuts import HttpResponse
 from django.contrib.auth import login, authenticate
-from apps.posts.models import Post
+from apps.posts.models import FavoritePost, Post
 
 # Create your views here.
 def register(request):
@@ -99,3 +99,16 @@ def profile_delete(request, id):
         'setting' : setting,
     }
     return render(request, 'users/delete.html', context)
+
+def user_favorites(request):
+    setting = Setting.objects.latest('id')
+    faverites_posts = FavoritePost.objects.all()
+    posts = Post.objects.all()
+    users = User.objects.all()
+    context = {
+        'setting' : setting,
+        'faverites_posts' : faverites_posts,
+        'posts' : posts,
+        'users' : users,
+    }
+    return render(request, 'users/favorites.html', context)
