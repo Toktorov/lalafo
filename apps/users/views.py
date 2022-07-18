@@ -104,7 +104,13 @@ def user_favorites(request, id):
     setting = Setting.objects.latest('id')
     favorites_posts = FavoritePost.objects.all()
     user = User.objects.get(id = id)
+    post = Post.objects.get(id = id)
     posts = Post.objects.all()
+    if request.method == "POST":
+        if 'delete' in request.POST:
+            favorite_post = FavoritePost.objects.get(id = post.id)
+            favorite_post.delete()
+            return redirect('user_favorites', request.user.slug)
     context = {
         'setting' : setting,
         'favorites_posts' : favorites_posts,

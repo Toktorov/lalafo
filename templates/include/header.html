@@ -36,7 +36,7 @@
                             <i class="icon-sliders"></i>
                             <span class="action-num">3</span>
                         </a>
-                        <a href="wishlist.html" class="header-action-btn">
+                        <a href="{% url 'user_favorites' user.id %}" class="header-action-btn">
                             <i class="icon-heart"></i>
                             <span class="action-num">2</span>
                         </a>
@@ -411,7 +411,7 @@
 <div class="off-canvas-box">
     <div class="canvas-action">
         <a class="action" href="index.html#"><i class="icon-sliders"></i> Compare <span class="action-num">(0)</span></a>
-        <a class="action" href="index.html#"><i class="icon-heart"></i> Wishlist <span class="action-num">(0)</span></a>
+        <a class="action" href="{% url 'user_favorites' user.id %}"><i class="icon-heart"></i> Wishlist <span class="action-num">(0)</span></a>
     </div>
     <div class="canvas-close-bar">
         <span>Menu</span>

@@ -21,13 +21,13 @@ def post_detail(request, id):
                 post.valid = True
                 post.save()
                 return redirect('index')
-        if request.method == "POST":
-            if 'like' in request.POST:
-                try:
-                    like = FavoritePost.objects.get(user=request.user, post = post)
-                    like.delete()
-                except:
-                    FavoritePost.objects.create(user = request.user, post = post)
+        
+        if 'like' in request.POST:
+            try:
+                like = FavoritePost.objects.get(user=request.user, post = post)
+                like.delete()
+            except:
+                FavoritePost.objects.create(user = request.user, post = post)
 
 
     context = {

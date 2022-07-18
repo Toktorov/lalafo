@@ -256,12 +256,14 @@
                         </form>
                         {% endif %}
                         {% endif %}
+                        {% if user.is_authenticated and post.user != request.user %}
                         <form method = "POST">
                             {% csrf_token %}
                             <div class="single-form">
                                 <input class="btn btn-success" name = "like" type="submit" value="Понравилось">
                             </div>
                         </form>
+                        {% endif %}
                     <!-- Shop Single End -->
                 </div>
             </div>
