@@ -121,6 +121,9 @@
     <div class="menu-overlay"></div>
 
 
+    
+
+    {% if user.is_authenticated and user == request.user %}
     <!-- Page Banner Start -->
     <div class="page-banner-section section">
         <div class="container">
@@ -136,7 +139,6 @@
         </div>
     </div>
     <!-- Page Banner End -->
-
     <!-- Shopping Cart Section Start -->
     <div class="section section-padding">
         <div class="container">
@@ -146,44 +148,35 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th class="Product-thumb">Image</th>
-                                <th class="Product-info">Product Information</th>
-                                <th class="Product-quantity">Quantity</th>
-                                <th class="Product-total-price">Total Price</th>
-                                <th class="Product-add-cart">Add to Cart</th>
-                                <th class="Product-action">Action</th>
+                                <th class="Product-thumb">Фотография</th>
+                                <th class="Product-info">Информация о объявлении</th>
+                                
+                                <th class="Product-action">Действие</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for post in users.favorite_post.all %}
+                            {% for post in user.favorite_user.all %}
                             <tr>
                                 <td class="Product-thumb">
-                                    <img src="assets/images/product/prduct-03.jpg" alt="">
+                                    <img src="{{ post.post.post_image.url }}" alt="">
                                 </td>
                                 <td class="Product-info">
-                                    <h6 class="name"><a href="shop-single.html">{{ post.title }}</a></h6>
+                                    {% if post.post.slug %}
+                                    <h6 class="name"><a href="{% url 'post_detail_slug' post.post.slug %}">{{ post.post }}</a></h6>
+                                    {% else %}
+                                    <h6 class="name"><a href="{% url 'post_detail' post.id %}">{{ post.post }}</a></h6>
+                                    {% endif %}
                                     <div class="product-prices">
-                                        <span class="old-price">$35.90</span>
-                                        <span class="sale-price">$28.72</span>
-                                        <span class="discount-percentage">Save 20%</span>
+                                        {% if post.post.currency != "Договорная" %}
+                                        <span class="sale-price">{{ post.post.price }} {{ post.post.currency }}</span>
+                                        {% else %}
+                                        <span class="sale-price">{{ post.post.currency }}</span>
+
+                                        {% endif %}
                                     </div>
                                     <div class="product-size-color">
-                                        <p>Size <span>S</span></p>
-                                        <p>Color <span>White</span></p>
+                                        <p>Категория <span>{{ post.post.category }}</span></p>
                                     </div>
-                                </td>
-                                <td class="Product-quantity">
-                                    <div class="quantity d-inline-flex">
-                                        <button type="button" class="sub"><i class="icon-chevron-down"></i></button>
-                                        <input type="text" value="1" />
-                                        <button type="button" class="add"><i class="icon-chevron-up"></i></button>
-                                    </div>
-                                </td>
-                                <td class="Product-total-price">
-                                    <span class="price">$28.72</span>
-                                </td>
-                                <td class="Product-add-cart">
-                                    <a href="wishlist.html#" class="btn btn-dark btn-hover-primary">Add to Cart</a>
                                 </td>
                                 <td class="Product-action">
                                     <button class="remove"><i class="icon-trash-2"></i></button>
@@ -198,6 +191,24 @@
         </div>
     </div>
     <!-- Shopping Cart Section End -->
+    {% else %}
+    <!-- Page Banner Start -->
+    <div class="page-banner-section section">
+        <div class="container">
+            <!-- Pager Banner Start -->
+            <div class="page-banner-content text-center">
+                <h2 class="page-banner-title">У вас нет прав</h2>
+                <a href="{% url 'register' %}">Так как вы не владелец аккаунта {{user.usernmae}} или же не зарегистрованы, вы не можете просматривать избранное {{ user.username }}</a>
+                <ul class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="{% url 'register' %}">Зарегистрироваться</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'user_login' %}">Войти</a></li>
+                </ul>
+            </div>
+            <!-- Pager Banner End -->
+        </div>
+    </div>
+    <!-- Page Banner End -->
+    {% endif %}
 
     {% include 'include/footer.html' %}
 

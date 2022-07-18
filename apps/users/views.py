@@ -100,15 +100,15 @@ def profile_delete(request, id):
     }
     return render(request, 'users/delete.html', context)
 
-def user_favorites(request):
+def user_favorites(request, id):
     setting = Setting.objects.latest('id')
-    faverites_posts = FavoritePost.objects.all()
+    favorites_posts = FavoritePost.objects.all()
+    user = User.objects.get(id = id)
     posts = Post.objects.all()
-    users = User.objects.all()
     context = {
         'setting' : setting,
-        'faverites_posts' : faverites_posts,
+        'favorites_posts' : favorites_posts,
         'posts' : posts,
-        'users' : users,
+        'user' : user,
     }
     return render(request, 'users/favorites.html', context)

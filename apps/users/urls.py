@@ -7,5 +7,5 @@ urlpatterns = [
     path('profile/<int:id>', profile, name = "profile"),
     path('profile/update/<int:id>', profile_update, name = "profile_update"),
     path('profile/delete/<int:id>', profile_delete, name = "profile_delete"),
-    path('favorites/', user_favorites, name = "user_favorites")
+    path('favorites/user/<int:id>', user_favorites, name = "user_favorites")
 ]

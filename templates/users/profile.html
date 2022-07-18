@@ -150,7 +150,7 @@
                                 <a data-bs-toggle="pill" href="my-account.html#pills-order"><i class="fa fa-shopping-cart"></i> Мои объявления</a>
                             </li>
                             <li>
-                                <a href="{% url 'user_favorites' %}"><i class="icon-heart "></i> Избранное</a>
+                                <a href="{% url 'user_favorites' user.id %}"><i class="icon-heart "></i> Избранное</a>
                             </li>
                             
                             <li>

@@ -12,7 +12,7 @@
 
                         <!-- footer Widget Start -->
                         <div class="footer-widget">
-                            <a href="index.html#"><img src="assets/images/logo-white.png" alt=""></a>
+                            <a href="{% url 'index' %}"><img src="{{ setting.logo.url }}" width="30%" alt=""></a>
                             <div class="footer-widget-text">
                                 <p class="desc">{{ setting.description }}</p>
                                 <p><strong>Адрес :</strong> {{ setting.address }}</p>
