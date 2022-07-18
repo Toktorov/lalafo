@@ -178,12 +178,11 @@
                                         <p>Категория <span>{{ post.post.category }}</span></p>
                                     </div>
                                 </td>
-                                <form method="POST">
-                                    {% csrf_token %}
-                                    <td class="Product-action">
-                                        <button class="remove" name = "delete"><i class="icon-trash-2"></i></button>
-                                    </td>
-                                </form>
+                                
+                                <td class="Product-action">
+                                    <a href="{% url 'user_favorite_delete' post.id %}"><button class="remove" name = "delete"><i class="icon-trash-2"></i></button></a>
+                                </td>
+                               
                             </tr>
                             {% endfor %}
                         </tbody>

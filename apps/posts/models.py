@@ -51,7 +51,7 @@ class FavoritePost(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="favorite_post", verbose_name="Пост которому понравилось пост")
 
     def __str__(self):
-        return f"{self.user.username} {self.post.title}"
+        return f"{self.user.username} {self.post.title} {self.id}"
 
     class Meta:
         verbose_name = "Понравилось пост"
