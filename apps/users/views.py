@@ -118,10 +118,8 @@ def user_favorite_delete(request, id):
     favorites_posts = FavoritePost.objects.get(id = id)
     if request.method == "POST":
         if 'delete' in request.POST:
-            
             like = FavoritePost.objects.get(user=request.user, post = favorites_posts.post.id)
             like.delete()
-            
             return redirect('user_favorites', request.user.id)
     context = {
         'setting' : setting,

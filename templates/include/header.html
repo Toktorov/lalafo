@@ -32,14 +32,13 @@
 
                     <!-- Header Action Start -->
                     <div class="header-actions">
-                        <a href="compare.html" class="header-action-btn">
-                            <i class="icon-sliders"></i>
-                            <span class="action-num">3</span>
-                        </a>
+                        
+                        {% if user.is_authenticated %}
                         <a href="{% url 'user_favorites' user.id %}" class="header-action-btn">
                             <i class="icon-heart"></i>
                             <span class="action-num">2</span>
                         </a>
+                        {% endif %}
                         <div class="dropdown">
                             <a href="index.html#" class="header-action-btn" role="button" data-bs-toggle="dropdown">
                                 <i class="icon-shopping-bag2"></i>
@@ -187,65 +186,7 @@
                 <nav>
                     <ul>
                         <li><a href="{% url 'index' %}">Домой</a></li>
-                        <li>
-                            <a href="index.html#">Shop</a>
-                            <ul class="mega-sub-menu">
-                                <li>
-                                    <a href="index.html#" class="menu-title">Shop Grid</a>
-
-                                    <ul class="menu-item">
-                                        <li><a href="shop-grid-3-column.html">Shop Grid 3 Column</a></li>
-                                        <li><a href="shop-grid-4-column.html">Shop Grid 4 Column</a></li>
-                                        <li><a href="shop-grid-left-sidebar.html">Shop Grid Left Sidebar</a></li>
-                                        <li><a href="shop-grid-right-sidebar.html">Shop Grid Right Sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="index.html#" class="menu-title">Shop List</a>
-
-                                    <ul class="menu-item">
-                                        <li><a href="shop-list.html">Shop List</a></li>
-                                        <li><a href="shop-list-left-sidebar.html">Shop List Left Sidebar</a></li>
-                                        <li><a href="shop-list-right-sidebar.html">Shop List Right Sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="index.html#" class="menu-title">Shop Single</a>
-
-                                    <ul class="menu-item">
-                                        <li><a href="shop-single.html">Shop Single</a></li>
-                                        <li><a href="shop-single-affiliate.html">Shop Single Affiliate</a></li>
-                                        <li><a href="shop-single-gallery.html">Shop Single Gallery</a></li>
-                                        <li><a href="shop-single-group.html">Shop Single Group</a></li>
-                                        <li><a href="shop-single-sticky.html">Shop Single Sticky</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="index.html#" class="menu-title">Page</a>
-
-                                    <ul class="menu-item">
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                        <li><a href="compare.html">Compare</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="my-account.html">My Account</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="index.html#">Page</a>
-                            <ul class="sub-menu">
-                                <li><a href="cart.html">Cart</a></li>
-                                <li><a href="wishlist.html">Wishlist</a></li>
-                                <li><a href="compare.html">Compare</a></li>
-                                <li><a href="empty-cart.html">Empty Cart</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                                <li><a href="my-account.html">My Account</a></li>
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="register.html">Register</a></li>
-                            </ul>
-                        </li>
+                        
                         <li>
                             <a href="index.html#">Blog</a>
                             <ul class="sub-menu">
@@ -270,7 +211,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="{% url 'contact' %}">Контакты</a></li>
                         {% if user.is_authenticated %}
                         <li class="active">
                             <li><a href="{% url 'post_create' %}">Подать объявление</a></li>
@@ -411,7 +352,9 @@
 <div class="off-canvas-box">
     <div class="canvas-action">
         <a class="action" href="index.html#"><i class="icon-sliders"></i> Compare <span class="action-num">(0)</span></a>
+        {% if user.is_authenticated %}
         <a class="action" href="{% url 'user_favorites' user.id %}"><i class="icon-heart"></i> Wishlist <span class="action-num">(0)</span></a>
+        {% endif %}
     </div>
     <div class="canvas-close-bar">
         <span>Menu</span>

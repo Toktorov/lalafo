@@ -51,8 +51,8 @@
     <div class="container">
         <!-- Section Title Start -->
         <div class="section-title text-center">
-            <h2 class="title">Все товары</h2>
-            <p>Consequat magna, massa vel suspendisse morbi aliquam faucibus <br> ligula ante ipsum ac nulla.</p>
+            <h2 class="title">Все объявления</h2>
+            <p>Все объявления по всему Кыргызстану</p>
         </div>
         <!-- Section Title End -->
 
@@ -142,8 +142,8 @@
                                 <img src="{% static 'assets/images/icon/icon1.png' %}" alt="">
                             </div>
                             <div class="feature-content">
-                                <h3 class="title">Free Shipping Worldwide</h3>
-                                <p>Mirum est notare quam littera gothica, quam nunc putamus parum</p>
+                                <h3 class="title">Бесплатная доставка по всему миру</h3>
+                                <p>Замечательно отметить, как мало готического письма мы думаем сейчас</p>
                             </div>
                         </div>
                         <!-- Single Features Item End -->
@@ -155,8 +155,8 @@
                                 <img src="{% static 'assets/images/icon/icon2.png' %}" alt="">
                             </div>
                             <div class="feature-content">
-                                <h3 class="title">Money Back Guarantee</h3>
-                                <p>Mirum est notare quam littera gothica, quam nunc putamus parum</p>
+                                <h3 class="title">Гарантия возврата денег</h3>
+                                <p>Замечательно отметить, как мало готического письма мы думаем сейчас</p>
                             </div>
                         </div>
                         <!-- Single Features Item End -->
@@ -165,11 +165,11 @@
                         <!-- Single Features Item Start -->
                         <div class="single-features-item mt-6">
                             <div class="feature-icon">
-                                <img src="assets/images/icon/icon3.png" alt="">
+                                <img src="{% static 'assets/images/icon/icon3.png' %}" alt="">
                             </div>
                             <div class="feature-content">
-                                <h3 class="title">online support 24/7</h3>
-                                <p>Mirum est notare quam littera gothica, quam nunc putamus parum</p>
+                                <h3 class="title">Онлайн-поддержка 24/7</h3>
+                                <p>Замечательно отметить, как мало готического письма мы думаем сейчас</p>
                             </div>
                         </div>
                         <!-- Single Features Item End -->
@@ -186,16 +186,16 @@
             <div class="row justify-content-between">
                 <div class="col-lg-4">
                     <div class="about-image">
-                        <img src="assets/images/about.jpg" alt="">
+                        <img src="{{ about.image.url }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="about-text">
                         <div class="about-text-wrapper">
-                            <h4 class="title">About us</h4>
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur. <br><br> Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis distinctio sunt exercitationem. <a href="index.html#">Learn More</a></p>
+                            <h4 class="title">О нас</h4>
+                            <p>{{ about.description }}</p>
                         </div>
-                        <img src="assets/images/about-text.png" alt="">
+                        
                     </div>
                 </div>
             </div>
@@ -243,684 +243,7 @@
     </div>
     <!-- Banner End -->
 
-    <!-- Best Seller Start -->
-    <div class="section section-padding-02 mt-n3">
-        <div class="container">
-            <!-- Product Tabs Start -->
-            <div class="product-tabs">
-                <ul class="nav justify-content-center">
-                    <li class="nav-item"><a class="active" data-bs-toggle="tab" href="index.html#tab1">Best Seller</a></li>
-                    <li class="nav-item"><a data-bs-toggle="tab" href="index.html#tab2">Trending</a></li>
-                    <li class="nav-item"><a data-bs-toggle="tab" href="index.html#tab3">Top Sale</a></li>
-                </ul>
-
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="tab1">
-                        <!-- Product Wrapper Start -->
-                        <div class="product-wrapper product-active">
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide" >
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-13.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-12.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                    <span class="discount-percentage">-20%</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Originals Kaval Windbreaker Winter Jacket</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$19.12</span>
-                                                    <span class="old-price">$23.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-12.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-07.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                    <span class="discount-percentage">-20%</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">New Balance Fresh Foam Kaymin Cushioning...</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$19.12</span>
-                                                    <span class="old-price">$23.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-08.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-11.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Brixton Patrol All Terrain Anorak Jacket...</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$19.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-11.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-03.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Madden by Steve Madden Cale 6 Handsome Madden</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$19.12</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-11.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Fila Locker Room Varsity Jacket Comfortable</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$11.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-02.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-01.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Originals Kaval Windbreaker Winter Jacket</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$18.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Add Arrows -->
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                        </div>
-                        <!-- Product Wrapper End -->
-                    </div>
-                    <div class="tab-pane fade" id="tab2">
-                        <!-- Product Wrapper Start -->
-                        <div class="product-wrapper product-active">
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-13.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-12.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                    <span class="discount-percentage">-20%</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Water and Wind Resistant Insulated Jacket</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$19.12</span>
-                                                    <span class="old-price">$23.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-12.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-07.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                    <span class="discount-percentage">-20%</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Juicy Couture Solid Sleeve Puffer Jacket Solid...</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$19.12</span>
-                                                    <span class="old-price">$23.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-08.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-11.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Originals Kaval Windbreaker Winter Jacket</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$19.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-11.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-03.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Originals Kaval Windbreaker Winter Jacket</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$19.12</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-11.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">New Balance Fresh Foam LAZR v1 Sport Sport Running</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$11.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-02.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-01.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">New Balance Arishi Sport v1 New Balance</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$18.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Add Arrows -->
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                        </div>
-                        <!-- Product Wrapper End -->
-                    </div>
-                    <div class="tab-pane fade" id="tab3">
-                        <!-- Product Wrapper Start -->
-                        <div class="product-wrapper product-active">
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-13.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-12.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                    <span class="discount-percentage">-20%</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Juicy Couture Solid Sleeve Puffer Jacket Solid...</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$19.12</span>
-                                                    <span class="old-price">$23.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-12.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-07.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                    <span class="discount-percentage">-20%</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Water and Wind Resistant Insulated Jacket</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$19.12</span>
-                                                    <span class="old-price">$23.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-08.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-11.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">New Balance Arishi Sport v1 New Balance</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$19.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-11.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-03.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Brixton Patrol All Terrain Anorak Jacket...</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$19.12</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-11.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Madden by Steve Madden Cale 6 Handsome Madden</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$11.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <!-- Product Item Start -->
-                                        <div class="product-item">
-                                            <div class="image-block">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/images/product/prduct-02.jpg" alt="">
-                                                    <img class="image-hover" src="assets/images/product/prduct-01.jpg" alt="">
-                                                </a>
-                                                <div class="product-label">
-                                                    <span class="new">New</span>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a class="action-btn add-cart" href="index.html#"><i class="icon-shopping-bag2"></i></a>
-                                                    <a class="action-btn wishlist " href="index.html#"><i class="icon-heart"></i></a>
-                                                    <a class="action-btn compare" href="index.html#"><i class="icon-sliders"></i></a>
-                                                    <a class="action-btn quick-view" href="index.html#" data-bs-toggle="modal" data-bs-target="#quickView"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-features-reviews">
-                                                    <a href="index.html#" class="features">Studio Design</a>
-
-                                                    <div class="review-star">
-                                                        <div class="star" style="width: 80%;"></div>
-                                                    </div>
-                                                </div>
-                                                <h4 class="product-name"><a href="shop-single.html">Fila Locker Room Varsity Jacket Comfortable</a></h4>
-                                                <div class="product-price">
-                                                    <span class="sale-price">$18.90</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Product Item End -->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Add Arrows -->
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                        </div>
-                        <!-- Product Wrapper End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Product Tabs End -->
-        </div>
-    </div>
-    <!-- Best Seller End -->
+    
 
     <!-- Banner Start -->
     <div class="section mt-n6">
@@ -958,8 +281,8 @@
         <div class="container">
             <!-- Section Title Start -->
             <div class="section-title text-center">
-                <h2 class="title">From Our Blog </h2>
-                <p>Consequat magna, massa vel suspendisse morbi aliquam faucibus <br> ligula ante ipsum ac nulla.</p>
+                <h2 class="title">Из нашего блога </h2>
+                <p>Здесь вы можете прочитать новости о проекте</p>
             </div>
             <!-- Section Title End -->
 
@@ -967,82 +290,27 @@
             <div class="blog-wraper blog-active">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
+                        {% for blog in blogs %}
                         <div class="swiper-slide">
                             <!-- Single Blog Item Start -->
                             <div class="single-blog-item">
                                 <div class="blog-image">
-                                    <a href="blog-details-left-sidebar.html">
-                                        <img src="assets/images/blog/blog-01.jpg" alt="">
+                                    <a href="{% url 'blog_detail' blog.id %}">
+                                        <img src="{{ blog.image.url }}" alt="">
                                     </a>
                                 </div>
                                 <div class="blog-content">
-                                    <h4 class="post-title"><a href="blog-details-left-sidebar.html">This is Secound Post For XipBlog</a></h4>
+                                    <h4 class="post-title"><a href="{% url 'blog_detail' blog.id %}">{{ blog.title }}</a></h4>
                                     <div class="blog-meta">
-                                        <p class="meta-author">Posted by <a href="index.html#">HasThemes</a></p>
-                                        <p class="meta-date">Aug 26TH, 2020</p>
+                                        <p class="meta-date">{{ blog.created }}</p>
                                     </div>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when ...</p>
+                                    <p>{{ blog.description|truncatewords:20 }}</p>
                                 </div>
                             </div>
                             <!-- Single Blog Item End -->
                         </div>
-                        <div class="swiper-slide">
-                            <!-- Single Blog Item Start -->
-                            <div class="single-blog-item">
-                                <div class="blog-image">
-                                    <a href="blog-details-left-sidebar.html">
-                                        <img src="assets/images/blog/blog-02.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <h4 class="post-title"><a href="blog-details-left-sidebar.html">This is Big sale this summer</a></h4>
-                                    <div class="blog-meta">
-                                        <p class="meta-author">Posted by <a href="index.html#">HasThemes</a></p>
-                                        <p class="meta-date">Aug 26TH, 2020</p>
-                                    </div>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when ...</p>
-                                </div>
-                            </div>
-                            <!-- Single Blog Item End -->
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- Single Blog Item Start -->
-                            <div class="single-blog-item">
-                                <div class="blog-image">
-                                    <a href="blog-details-left-sidebar.html">
-                                        <img src="assets/images/blog/blog-03.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <h4 class="post-title"><a href="blog-details-left-sidebar.html">Nicholas K Spring 2020 Runway</a></h4>
-                                    <div class="blog-meta">
-                                        <p class="meta-author">Posted by <a href="index.html#">HasThemes</a></p>
-                                        <p class="meta-date">Aug 26TH, 2020</p>
-                                    </div>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when ...</p>
-                                </div>
-                            </div>
-                            <!-- Single Blog Item End -->
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- Single Blog Item Start -->
-                            <div class="single-blog-item">
-                                <div class="blog-image">
-                                    <a href="blog-details-left-sidebar.html">
-                                        <img src="assets/images/blog/blog-04.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <h4 class="post-title"><a href="blog-details-left-sidebar.html">London Fashion Week 2020</a></h4>
-                                    <div class="blog-meta">
-                                        <p class="meta-author">Posted by <a href="index.html#">HasThemes</a></p>
-                                        <p class="meta-date">Aug 26TH, 2020</p>
-                                    </div>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when ...</p>
-                                </div>
-                            </div>
-                            <!-- Single Blog Item End -->
-                        </div>
+                        {% endfor %}
+                        
                     </div>
                 </div>
                 <!-- Add Arrows -->
