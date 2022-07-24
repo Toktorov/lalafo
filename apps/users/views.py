@@ -126,3 +126,12 @@ def user_favorite_delete(request, id):
         'favorites_posts' : favorites_posts,
     }
     return render(request, 'users/delete_favorites.html', context)
+
+def comment_user(request, id):
+    setting = Setting.objects.latest('id')
+    user = User.objects.get(id = id)
+    context = {
+        'setting' : setting,
+        'user' : user,
+    }
+    return render(request, 'users/comments.html', context)

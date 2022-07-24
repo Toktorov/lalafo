@@ -193,6 +193,36 @@
                                    </select>
                             </div>
                             <div class="single-form">
+                                <label class="form-label">Категория</label>
+                                <select size="1" name="category" class="form-control">
+                                    {% for category in categories %}
+                                    <option class=" menu-item-has-children" value="{{ category.id }}" selected>{{ category.title }}</option>
+                                    {% endfor %}
+                                   </select>
+                                   <label class="form-label">Суб Категория</label>
+                                   <select size="1" name="category" class="form-control primary-menu">
+                                    <option class="form-control menu-item-has-children" value="asdaw">
+                                        Категория
+                                    </option>
+                                    <ul class="sub-menu">
+                                        {% for category in categories %}
+                                        {% if category.parent == None %}
+                                        <li class="menu-item-has-children"><input type="submit" placeholder="" >{{ category.title }}
+                                            {% if category.parent > 1  %}
+                                            <ul style="right: 100% !important;" class="sub-menu" >
+                                                <li ><input type="submit">Blog Grid Left Sidebar</li>
+                                            </ul>
+                                            {% endif %}
+                                        </li>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </li>   
+                            </ul>
+                        </select>
+                            </div>  
+                            </div>
+                            <div class="single-form">
                                 <label class="form-label">Цена *</label>
                                 <input type="text" name = "price" class="form-control">
                             </div>

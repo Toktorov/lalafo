@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'apps.categories',
     'apps.posts',
 
+    #moduls
+    'mptt',
+
     # Add the following django-allauth apps
     'allauth',
     'allauth.account',

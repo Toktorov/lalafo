@@ -152,7 +152,9 @@
                             <li>
                                 <a href="{% url 'user_favorites' user.id %}"><i class="icon-heart "></i> Избранное</a>
                             </li>
-                            
+                            <li>
+                                <a href="{% url 'user_favorites' user.id %}"><i class="icon-star "></i> Оставить комментарий</a>
+                            </li>
                             <li>
                                 <a href="{% url 'profile_update' user.id %}"><i class="fa fa-user"></i> Редактировать профиль</a>
                             </li>
@@ -428,9 +430,11 @@
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     </div>
+                    
                 </div>
                         
                     <!-- Tab content End -->
+                
                 </div>
             </div>
         </div>
