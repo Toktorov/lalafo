@@ -186,31 +186,9 @@
                 <nav>
                     <ul>
                         <li><a href="{% url 'index' %}">Домой</a></li>
-                        
-                        <li>
-                            <a href="index.html#">Blog</a>
-                            <ul class="sub-menu">
-                                <li><a href="index.html#">Blog Grid</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog-grid.html">Blog Grid</a></li>
-                                        <li><a href="blog-grid-left-sidebar.html">Blog Grid Left Sidebar</a></li>
-                                        <li><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="index.html#">Blog List</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog-list-left-sidebar.html">Blog List Left Sidebar</a></li>
-                                        <li><a href="blog-list-right-sidebar.html">Blog List Right Sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="index.html#">Blog Details</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog-details-left-sidebar.html">Blog details Left Sidebar</a></li>
-                                        <li><a href="blog-details-right-sidebar.html">Blog details Right Sidebar</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+                        {% if user.is_superuser %}
+                        <li><a href="{% url 'comment_index' %}">Комментарии</a></li>
+                        {% endif %}
                         <li><a href="{% url 'contact' %}">Контакты</a></li>
                         {% if user.is_authenticated %}
                         <li class="active">
@@ -220,7 +198,7 @@
                             <a href="index.html#">{{request.user.username}}</a>
                             <ul class="sub-menu">
                                 <li><a href="{% url 'logout' %}">Выйти</a></li>
-                                <li><a href="{% url 'profile' user.id %}">Мой аккаунт</a></li>
+                                <li><a href="{% url 'profile' request.user.id %}">Мой аккаунт</a></li>
                                 <li><a href="index-3.html">Настройки</a></li>
                                 <li><a href="index-4.html">Редактировать профиль</a></li>
                             </ul>

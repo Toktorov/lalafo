@@ -1,5 +1,5 @@
 from django.urls import path 
-from apps.users.views import register, user_login, profile, profile_update, profile_delete, user_favorites, user_favorite_delete, comment_user
+from apps.users.views import register, user_login, profile, profile_update, profile_delete, user_favorites, user_favorite_delete, comment_user, comment_index
 
 urlpatterns = [
     path('register/', register, name = "register"),
@@ -10,4 +10,5 @@ urlpatterns = [
     path('favorites/user/<int:id>', user_favorites, name = "user_favorites"),
     path('favorites/delete/<int:id>', user_favorite_delete, name = "user_favorite_delete"),
     path('comments/<int:id>', comment_user, name = "comment_user"),
+    path('comments/', comment_index, name = "comment_index"),
 ]

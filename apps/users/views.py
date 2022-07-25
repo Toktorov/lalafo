@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from apps.settings.models import Setting
-from apps.users.models import User
+from apps.users.models import User, UserComment
 from django.shortcuts import HttpResponse
 from django.contrib.auth import login, authenticate
 from apps.posts.models import FavoritePost, Post
@@ -130,8 +130,32 @@ def user_favorite_delete(request, id):
 def comment_user(request, id):
     setting = Setting.objects.latest('id')
     user = User.objects.get(id = id)
+    if request.method == "POST":
+        rating = request.POST.get('rating')
+        text =request.POST.get('text')
+        comment = UserComment.objects.create(user = request.user, comment_user = user, rating = 5, text = text)
+        return redirect('comment_user', user.id)
     context = {
         'setting' : setting,
         'user' : user,
     }
     return render(request, 'users/comments.html', context)
+
+def comment_index(request):
+    setting = Setting.objects.all()
+    comments = UserComment.objects.all()
+    if request.method == "POST":
+        if 'not_accept' in request.POST:
+            comment = UserComment.objects.get(id = comments.id)
+            comment.status_comment = "Не принята"
+            comment.save()
+            return redirect('comment_index')
+        if 'accept' in request.POST:
+            comment = UserComment.objects.get(id = comments.id)
+            comment.status_comment = "Принята"
+            comment.save()
+    context = {
+        'setting' : setting,
+        'comments' : comments,
+    }
+    return render(request, 'users/comment_index.html', context)
